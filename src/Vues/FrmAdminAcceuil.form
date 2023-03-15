@@ -59,7 +59,6 @@
                           <Component id="btnEleveVoirStats" pref="198" max="32767" attributes="0"/>
                           <Component id="btnAdminVoirCA" pref="198" max="32767" attributes="0"/>
                           <Component id="btnAdminAjouterMoniteur" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnAdminVoirStatistiquesVehicule" alignment="0" pref="198" max="32767" attributes="0"/>
                           <Component id="btnAdminStatistiqueMoniteur" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
@@ -103,17 +102,19 @@
                   <Component id="btnAdminAjouterVehicule" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnAdminLecon" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnEleveVoirStats" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnAdminPlanningEleve" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                      <Component id="btnEleveVoirStats" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="btnAdminPlanningEleve" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnAdminMoniteurPlanning" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnAdminVoirStatistiquesVehicule" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="btnAdminMoniteurPlanning" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblAdminTitreCategories" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblAdminTitreAutre" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -130,7 +131,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btnAdminVoirCA" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="90" max="32767" attributes="0"/>
+              <EmptySpace pref="85" max="32767" attributes="0"/>
               <Component id="btnEleveModifierInformation" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -275,21 +276,12 @@
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAdminVoirCAMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnAdminVoirStatistiquesVehicule">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Voir les Statistiques"/>
-      </Properties>
-      <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAdminVoirStatistiquesVehiculeMouseClicked"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="btnAdminStatistiqueMoniteur">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Statistique Moniteur"/>
+        <Property name="text" type="java.lang.String" value="Statistique V&#xe9;hicule/Moniteur"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAdminStatistiqueMoniteurMouseClicked"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdminStatistiqueMoniteurActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

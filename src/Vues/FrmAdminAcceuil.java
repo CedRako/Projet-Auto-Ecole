@@ -52,7 +52,6 @@ public class FrmAdminAcceuil extends javax.swing.JFrame {
         lblAdminTitreAutre = new javax.swing.JLabel();
         btnAdminAjouterMoniteur = new javax.swing.JButton();
         btnAdminVoirCA = new javax.swing.JButton();
-        btnAdminVoirStatistiquesVehicule = new javax.swing.JButton();
         btnAdminStatistiqueMoniteur = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -152,22 +151,10 @@ public class FrmAdminAcceuil extends javax.swing.JFrame {
             }
         });
 
-        btnAdminVoirStatistiquesVehicule.setText("Voir les Statistiques");
-        btnAdminVoirStatistiquesVehicule.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAdminVoirStatistiquesVehiculeMouseClicked(evt);
-            }
-        });
-
-        btnAdminStatistiqueMoniteur.setText("Statistique Moniteur");
+        btnAdminStatistiqueMoniteur.setText("Statistique Véhicule/Moniteur");
         btnAdminStatistiqueMoniteur.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnAdminStatistiqueMoniteurMouseClicked(evt);
-            }
-        });
-        btnAdminStatistiqueMoniteur.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdminStatistiqueMoniteurActionPerformed(evt);
             }
         });
 
@@ -204,7 +191,6 @@ public class FrmAdminAcceuil extends javax.swing.JFrame {
                             .addComponent(btnEleveVoirStats, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
                             .addComponent(btnAdminVoirCA, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
                             .addComponent(btnAdminAjouterMoniteur, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAdminVoirStatistiquesVehicule, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
                             .addComponent(btnAdminStatistiqueMoniteur, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(50, 50, 50)))
                 .addGap(39, 39, 39))
@@ -238,15 +224,16 @@ public class FrmAdminAcceuil extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdminAjouterVehicule)
                     .addComponent(btnAdminLecon))
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEleveVoirStats)
-                    .addComponent(btnAdminPlanningEleve))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAdminMoniteurPlanning)
-                    .addComponent(btnAdminVoirStatistiquesVehicule))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(btnEleveVoirStats))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnAdminPlanningEleve)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAdminMoniteurPlanning)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAdminTitreCategories)
                     .addComponent(lblAdminTitreAutre))
@@ -260,7 +247,7 @@ public class FrmAdminAcceuil extends javax.swing.JFrame {
                     .addComponent(btnAdminStatistiqueMoniteur))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAdminVoirCA)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                 .addComponent(btnEleveModifierInformation)
                 .addContainerGap())
         );
@@ -315,17 +302,9 @@ public class FrmAdminAcceuil extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAdminVoirCAMouseClicked
 
-    private void btnAdminVoirStatistiquesVehiculeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminVoirStatistiquesVehiculeMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAdminVoirStatistiquesVehiculeMouseClicked
-
     private void btnAdminStatistiqueMoniteurMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminStatistiqueMoniteurMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAdminStatistiqueMoniteurMouseClicked
-
-    private void btnAdminStatistiqueMoniteurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminStatistiqueMoniteurActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAdminStatistiqueMoniteurActionPerformed
 
     private void btnEleveModifierInformationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEleveModifierInformationMouseClicked
         // TODO add your handling code here:
@@ -379,7 +358,6 @@ public class FrmAdminAcceuil extends javax.swing.JFrame {
     private javax.swing.JButton btnAdminPlanningEleve;
     private javax.swing.JButton btnAdminStatistiqueMoniteur;
     private javax.swing.JButton btnAdminVoirCA;
-    private javax.swing.JButton btnAdminVoirStatistiquesVehicule;
     private javax.swing.JButton btnEleveModifierInformation;
     private javax.swing.JButton btnEleveVoirStats;
     private javax.swing.JLabel lblAdminNomConnexion;
