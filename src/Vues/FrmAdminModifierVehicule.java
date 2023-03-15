@@ -37,6 +37,7 @@ public class FrmAdminModifierVehicule extends javax.swing.JPanel {
         txtModeleVehicule = new javax.swing.JTextField();
         ycAnneeVehicule = new com.toedter.calendar.JYearChooser();
         jComboBox1 = new javax.swing.JComboBox<>();
+        btnModifierVehicule = new javax.swing.JButton();
 
         lblModifierVehicule.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblModifierVehicule.setText("Modifier un véhicule");
@@ -55,6 +56,13 @@ public class FrmAdminModifierVehicule extends javax.swing.JPanel {
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("La catégorie du véhicule :");
+
+        btnModifierVehicule.setText("Modifier le véhicule");
+        btnModifierVehicule.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnModifierVehiculeMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -86,6 +94,10 @@ public class FrmAdminModifierVehicule extends javax.swing.JPanel {
                             .addComponent(ycAnneeVehicule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnModifierVehicule, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(117, 117, 117))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,12 +124,19 @@ public class FrmAdminModifierVehicule extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addGap(42, 42, 42)
+                .addComponent(btnModifierVehicule)
+                .addContainerGap(51, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnModifierVehiculeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModifierVehiculeMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnModifierVehiculeMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnModifierVehicule;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lblAnneeVehicule;
