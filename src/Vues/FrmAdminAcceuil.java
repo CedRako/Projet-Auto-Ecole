@@ -252,7 +252,7 @@ public class FrmAdminAcceuil extends javax.swing.JFrame {
     private void btnAdminLeconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminLeconMouseClicked
         // TODO add your handling code here:
 
-        FrmAdminLecon frm= new FrmAdminLecon();
+        FrmAdminLecons frm= new FrmAdminLecons();
         frm.setVisible(true);
     }//GEN-LAST:event_btnAdminLeconMouseClicked
 

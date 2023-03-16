@@ -35,6 +35,16 @@ public class FrmAdminChiffreDAffaires extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         txtChiffreDAFFAIRE = new javax.swing.JTextField();
         btnAdminGrapheChiffreDAFffaire = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        lblChiffreDAffaire1 = new javax.swing.JLabel();
+        lblPeriode1 = new javax.swing.JLabel();
+        dcAdminChiffreDAffaire3 = new com.toedter.calendar.JDateChooser();
+        lblAu1 = new javax.swing.JLabel();
+        dcAdminChiffreDAffaire4 = new com.toedter.calendar.JDateChooser();
+        btnAdminChiffreDAffaires1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        txtChiffreDAFFAIRE1 = new javax.swing.JTextField();
+        btnAdminGrapheChiffreDAFffaire1 = new javax.swing.JButton();
 
         lblChiffreDAffaire.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblChiffreDAffaire.setText("Le Chiffre d'Affaire");
@@ -58,6 +68,80 @@ public class FrmAdminChiffreDAffaires extends javax.swing.JPanel {
                 btnAdminGrapheChiffreDAFffaireMouseClicked(evt);
             }
         });
+
+        lblChiffreDAffaire1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblChiffreDAffaire1.setText("Le Chiffre d'Affaire");
+
+        lblPeriode1.setText("Choisissez une période :");
+
+        lblAu1.setText("Au");
+
+        btnAdminChiffreDAffaires1.setText("Voir votre chiffre d'affaire");
+        btnAdminChiffreDAffaires1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAdminChiffreDAffaires1MouseClicked(evt);
+            }
+        });
+
+        jLabel2.setText("Votre chiffre d'affaire durant cette période : ");
+
+        btnAdminGrapheChiffreDAFffaire1.setText("Voir le graphique ");
+        btnAdminGrapheChiffreDAFffaire1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAdminGrapheChiffreDAFffaire1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblChiffreDAffaire1)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblPeriode1)
+                                .addGap(28, 28, 28)
+                                .addComponent(dcAdminChiffreDAffaire3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(44, 44, 44)
+                                .addComponent(lblAu1)))
+                        .addGap(40, 40, 40)
+                        .addComponent(dcAdminChiffreDAffaire4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addComponent(btnAdminChiffreDAffaires1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btnAdminGrapheChiffreDAFffaire1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtChiffreDAFFAIRE1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(87, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(lblChiffreDAffaire1)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblPeriode1)
+                    .addComponent(dcAdminChiffreDAffaire3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(dcAdminChiffreDAffaire4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblAu1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(64, 64, 64)
+                .addComponent(btnAdminChiffreDAffaires1)
+                .addGap(40, 40, 40)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtChiffreDAFFAIRE1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(btnAdminGrapheChiffreDAFffaire1)
+                .addGap(23, 23, 23))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -87,6 +171,11 @@ public class FrmAdminChiffreDAffaires extends javax.swing.JPanel {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(txtChiffreDAFFAIRE, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(87, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,6 +197,11 @@ public class FrmAdminChiffreDAffaires extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(btnAdminGrapheChiffreDAFffaire)
                 .addGap(23, 23, 23))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -119,16 +213,34 @@ public class FrmAdminChiffreDAffaires extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAdminChiffreDAffairesMouseClicked
 
+    private void btnAdminChiffreDAffaires1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminChiffreDAffaires1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAdminChiffreDAffaires1MouseClicked
+
+    private void btnAdminGrapheChiffreDAFffaire1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminGrapheChiffreDAFffaire1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAdminGrapheChiffreDAFffaire1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdminChiffreDAffaires;
+    private javax.swing.JButton btnAdminChiffreDAffaires1;
     private javax.swing.JButton btnAdminGrapheChiffreDAFffaire;
+    private javax.swing.JButton btnAdminGrapheChiffreDAFffaire1;
     private com.toedter.calendar.JDateChooser dcAdminChiffreDAffaire1;
     private com.toedter.calendar.JDateChooser dcAdminChiffreDAffaire2;
+    private com.toedter.calendar.JDateChooser dcAdminChiffreDAffaire3;
+    private com.toedter.calendar.JDateChooser dcAdminChiffreDAffaire4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAu;
+    private javax.swing.JLabel lblAu1;
     private javax.swing.JLabel lblChiffreDAffaire;
+    private javax.swing.JLabel lblChiffreDAffaire1;
     private javax.swing.JLabel lblPeriode;
+    private javax.swing.JLabel lblPeriode1;
     private javax.swing.JTextField txtChiffreDAFFAIRE;
+    private javax.swing.JTextField txtChiffreDAFFAIRE1;
     // End of variables declaration//GEN-END:variables
 }
