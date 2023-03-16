@@ -36,8 +36,6 @@ public class FrmAdminCA extends javax.swing.JFrame {
         txtChiffreDAFFAIRE = new javax.swing.JTextField();
         btnAdminGrapheChiffreDAFffaire = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         lblChiffreDAffaire.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblChiffreDAffaire.setText("Le Chiffre d'Affaire");
 
@@ -116,6 +114,7 @@ public class FrmAdminCA extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAdminChiffreDAffairesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminChiffreDAffairesMouseClicked

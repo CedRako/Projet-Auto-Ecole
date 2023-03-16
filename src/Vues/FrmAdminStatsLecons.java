@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vues;
 
@@ -8,12 +8,12 @@ package Vues;
  *
  * @author Rakotomalala Cédric
  */
-public class FrmAdminStatistiqueLecons extends javax.swing.JPanel {
+public class FrmAdminStatsLecons extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrmAdminStatistiqueLecons
+     * Creates new form FrmAdminStatsLecons
      */
-    public FrmAdminStatistiqueLecons() {
+    public FrmAdminStatsLecons() {
         initComponents();
     }
 
@@ -28,20 +28,20 @@ public class FrmAdminStatistiqueLecons extends javax.swing.JPanel {
 
         lblTitreStatLecon = new javax.swing.JLabel();
         lblAdminStatLeconMoniteur = new javax.swing.JLabel();
-        lblAdminStatLeconVehicule = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         cboStatMoniteur = new javax.swing.JComboBox<>();
         cboStatVehicule = new javax.swing.JComboBox<>();
+        lblAdminStatLeconVehicule = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         cboStatCategorie = new javax.swing.JComboBox<>();
         btnAdminStatLecons = new javax.swing.JButton();
-        lblNombreLeconMoniteur = new javax.swing.JLabel();
-        lblNombreVehicule = new javax.swing.JLabel();
-        lblNombreCategorie = new javax.swing.JLabel();
         tctNbrLeconMoniteur = new javax.swing.JTextField();
         txtNbrLeconVehicule = new javax.swing.JTextField();
         txtNbrLeconCategorie = new javax.swing.JTextField();
+        lblNombreCategorie = new javax.swing.JLabel();
+        lblNombreVehicule = new javax.swing.JLabel();
+        lblNombreLeconMoniteur = new javax.swing.JLabel();
 
-        lblTitreStatLecon.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        lblTitreStatLecon.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         lblTitreStatLecon.setText("Le nombre de leçons ");
 
         lblAdminStatLeconMoniteur.setText("Choisissez un moniteur");
@@ -50,55 +50,59 @@ public class FrmAdminStatistiqueLecons extends javax.swing.JPanel {
 
         jLabel1.setText("Choisissez une catégorie");
 
+        cboStatCategorie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboStatCategorieActionPerformed(evt);
+            }
+        });
+
         btnAdminStatLecons.setText("Voir le nombre de leçons");
-
-        lblNombreLeconMoniteur.setText("Le nombre de leçons de ce moniteur est de :");
-
-        lblNombreVehicule.setText("Le nombre de leçons de ce véhicule est de :");
 
         lblNombreCategorie.setText("Le nombre de leçons de cette catégorie est de :");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        lblNombreVehicule.setText("Le nombre de leçons de ce véhicule est de :");
+
+        lblNombreLeconMoniteur.setText("Le nombre de leçons de ce moniteur est de :");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(107, 107, 107)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btnAdminStatLecons, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblAdminStatLeconMoniteur)
-                                        .addComponent(jLabel1)
-                                        .addComponent(lblAdminStatLeconVehicule))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(cboStatCategorie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(cboStatVehicule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(cboStatMoniteur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(68, 68, 68)
-                                .addComponent(lblTitreStatLecon))))
+                        .addComponent(lblNombreCategorie)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNbrLeconCategorie, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblNombreVehicule)
+                        .addGap(24, 24, 24)
+                        .addComponent(txtNbrLeconVehicule))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnAdminStatLecons, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblNombreVehicule)
-                                .addGap(24, 24, 24)
-                                .addComponent(txtNbrLeconVehicule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblNombreCategorie)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(lblAdminStatLeconVehicule)
+                                    .addComponent(lblAdminStatLeconMoniteur))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNbrLeconCategorie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cboStatCategorie, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cboStatVehicule, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cboStatMoniteur, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(150, 150, 150)
                         .addComponent(lblNombreLeconMoniteur)
                         .addGap(18, 18, 18)
-                        .addComponent(tctNbrLeconMoniteur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(83, Short.MAX_VALUE))
+                        .addComponent(tctNbrLeconMoniteur)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTitreStatLecon)
+                .addGap(151, 151, 151))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,10 +135,51 @@ public class FrmAdminStatistiqueLecons extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNbrLeconCategorie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNombreCategorie))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
+
+        pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cboStatCategorieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboStatCategorieActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboStatCategorieActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(FrmAdminStatsLecons.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(FrmAdminStatsLecons.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(FrmAdminStatsLecons.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(FrmAdminStatsLecons.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FrmAdminStatsLecons().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdminStatLecons;

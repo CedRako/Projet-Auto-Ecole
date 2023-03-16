@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vues;
 
@@ -8,10 +8,10 @@ package Vues;
  *
  * @author Rakotomalala Cédric
  */
-public class FrmAdminModifierVehicule extends javax.swing.JPanel {
+public class FrmAdminModifierVehicule extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrmAdminAjoutVehicule
+     * Creates new form FrmAdminAjoutVehicule1
      */
     public FrmAdminModifierVehicule() {
         initComponents();
@@ -26,36 +26,36 @@ public class FrmAdminModifierVehicule extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblModifierVehicule = new javax.swing.JLabel();
-        lblImmatriculation = new javax.swing.JLabel();
-        lblMarque = new javax.swing.JLabel();
-        lblModeleVehicule = new javax.swing.JLabel();
-        lblAnneeVehicule = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        txtImmatriculation = new javax.swing.JTextField();
-        txtMarque = new javax.swing.JTextField();
-        txtModeleVehicule = new javax.swing.JTextField();
-        ycAnneeVehicule = new com.toedter.calendar.JYearChooser();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cboModifierCatVehicule = new javax.swing.JComboBox<>();
+        lblAjoutCatVehicule = new javax.swing.JLabel();
+        ycModifierAnneeVehicule = new com.toedter.calendar.JYearChooser();
+        lblModifierAnneeVehicule = new javax.swing.JLabel();
+        lblModifierModeleVehicule = new javax.swing.JLabel();
+        txtModifierModeleVehicule = new javax.swing.JTextField();
+        txtModifierMarque = new javax.swing.JTextField();
+        lblModifierMarque = new javax.swing.JLabel();
+        lblModifierImmatriculation = new javax.swing.JLabel();
+        lblAjoutVehicule = new javax.swing.JLabel();
         btnModifierVehicule = new javax.swing.JButton();
+        cboModifierImmatriculation = new javax.swing.JComboBox<>();
 
-        lblModifierVehicule.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblModifierVehicule.setText("Modifier un véhicule");
+        lblAjoutCatVehicule.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblAjoutCatVehicule.setText("La catégorie du véhicule :");
 
-        lblImmatriculation.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblImmatriculation.setText("Immatriculation du véhicule : ");
+        lblModifierAnneeVehicule.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblModifierAnneeVehicule.setText("L'année du véhicule :");
 
-        lblMarque.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblMarque.setText("La marque du véhicule : ");
+        lblModifierModeleVehicule.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblModifierModeleVehicule.setText("Le modèle du véhicule : ");
 
-        lblModeleVehicule.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblModeleVehicule.setText("Le modèle du véhicule : ");
+        lblModifierMarque.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblModifierMarque.setText("La marque du véhicule : ");
 
-        lblAnneeVehicule.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblAnneeVehicule.setText("L'année du véhicule :");
+        lblModifierImmatriculation.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblModifierImmatriculation.setText("Immatriculation du véhicule : ");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel5.setText("La catégorie du véhicule :");
+        lblAjoutVehicule.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblAjoutVehicule.setText("Modifier un véhicule");
 
         btnModifierVehicule.setText("Modifier le véhicule");
         btnModifierVehicule.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -64,89 +64,132 @@ public class FrmAdminModifierVehicule extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(122, 122, 122)
-                .addComponent(lblModifierVehicule)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblImmatriculation)
-                            .addComponent(lblMarque))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtImmatriculation)
-                            .addComponent(txtMarque, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblModifierModeleVehicule)
+                                    .addComponent(lblModifierAnneeVehicule)
+                                    .addComponent(lblAjoutCatVehicule))
+                                .addGap(36, 36, 36)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtModifierModeleVehicule, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                                    .addComponent(ycModifierAnneeVehicule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cboModifierCatVehicule, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblModifierImmatriculation)
+                                    .addComponent(lblModifierMarque))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtModifierMarque, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                                    .addComponent(cboModifierImmatriculation, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblModeleVehicule)
-                            .addComponent(lblAnneeVehicule)
-                            .addComponent(jLabel5))
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtModeleVehicule, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                            .addComponent(ycAnneeVehicule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(122, 122, 122)
+                                .addComponent(lblAjoutVehicule))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(132, 132, 132)
+                                .addComponent(btnModifierVehicule)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnModifierVehicule, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(117, 117, 117))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(lblModifierVehicule)
+                .addComponent(lblAjoutVehicule)
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblImmatriculation)
-                    .addComponent(txtImmatriculation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblModifierImmatriculation)
+                    .addComponent(cboModifierImmatriculation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblMarque)
-                    .addComponent(txtMarque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblModifierMarque)
+                    .addComponent(txtModifierMarque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblModeleVehicule)
-                    .addComponent(txtModeleVehicule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblModifierModeleVehicule)
+                    .addComponent(txtModifierModeleVehicule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblAnneeVehicule)
-                    .addComponent(ycAnneeVehicule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblModifierAnneeVehicule)
+                    .addComponent(ycModifierAnneeVehicule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
+                    .addComponent(lblAjoutCatVehicule)
+                    .addComponent(cboModifierCatVehicule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
                 .addComponent(btnModifierVehicule)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
+
+        pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnModifierVehiculeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModifierVehiculeMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnModifierVehiculeMouseClicked
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(FrmAdminModifierVehicule.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(FrmAdminModifierVehicule.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(FrmAdminModifierVehicule.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(FrmAdminModifierVehicule.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FrmAdminModifierVehicule().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnModifierVehicule;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel lblAnneeVehicule;
-    private javax.swing.JLabel lblImmatriculation;
-    private javax.swing.JLabel lblMarque;
-    private javax.swing.JLabel lblModeleVehicule;
-    private javax.swing.JLabel lblModifierVehicule;
-    private javax.swing.JTextField txtImmatriculation;
-    private javax.swing.JTextField txtMarque;
-    private javax.swing.JTextField txtModeleVehicule;
-    private com.toedter.calendar.JYearChooser ycAnneeVehicule;
+    private javax.swing.JComboBox<String> cboModifierCatVehicule;
+    private javax.swing.JComboBox<String> cboModifierImmatriculation;
+    private javax.swing.JLabel lblAjoutCatVehicule;
+    private javax.swing.JLabel lblAjoutVehicule;
+    private javax.swing.JLabel lblModifierAnneeVehicule;
+    private javax.swing.JLabel lblModifierImmatriculation;
+    private javax.swing.JLabel lblModifierMarque;
+    private javax.swing.JLabel lblModifierModeleVehicule;
+    private javax.swing.JTextField txtModifierMarque;
+    private javax.swing.JTextField txtModifierModeleVehicule;
+    private com.toedter.calendar.JYearChooser ycModifierAnneeVehicule;
     // End of variables declaration//GEN-END:variables
 }

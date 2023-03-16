@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vues;
 
@@ -8,10 +8,10 @@ package Vues;
  *
  * @author Rakotomalala Cédric
  */
-public class FrmAdminAjoutVehicule extends javax.swing.JPanel {
+public class FrmAdminAjoutVehicule extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrmAdminAjoutVehicule
+     * Creates new form FrmAdminAjoutVehicule1
      */
     public FrmAdminAjoutVehicule() {
         initComponents();
@@ -26,36 +26,36 @@ public class FrmAdminAjoutVehicule extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        cboAjoutCategorie = new javax.swing.JComboBox<>();
+        lblAjoutCategorie = new javax.swing.JLabel();
+        ycAjoutAnneeVehicule = new com.toedter.calendar.JYearChooser();
+        lblAjoutAnneeVehicule = new javax.swing.JLabel();
+        lblAjoutModeleVehicule = new javax.swing.JLabel();
+        txtAjoutModeleVehicule = new javax.swing.JTextField();
+        txtAjoutMarque = new javax.swing.JTextField();
+        lblAjoutMarque = new javax.swing.JLabel();
+        lblAjoutImmatriculation = new javax.swing.JLabel();
+        txtAjoutImmatriculation = new javax.swing.JTextField();
         lblAjoutVehicule = new javax.swing.JLabel();
-        lblImmatriculation = new javax.swing.JLabel();
-        lblMarque = new javax.swing.JLabel();
-        lblModeleVehicule = new javax.swing.JLabel();
-        lblAnneeVehicule = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        txtImmatriculation = new javax.swing.JTextField();
-        txtMarque = new javax.swing.JTextField();
-        txtModeleVehicule = new javax.swing.JTextField();
-        ycAnneeVehicule = new com.toedter.calendar.JYearChooser();
-        jComboBox1 = new javax.swing.JComboBox<>();
         btnAjoutVehicule = new javax.swing.JButton();
+
+        lblAjoutCategorie.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblAjoutCategorie.setText("La catégorie du véhicule :");
+
+        lblAjoutAnneeVehicule.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblAjoutAnneeVehicule.setText("L'année du véhicule :");
+
+        lblAjoutModeleVehicule.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblAjoutModeleVehicule.setText("Le modèle du véhicule : ");
+
+        lblAjoutMarque.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblAjoutMarque.setText("La marque du véhicule : ");
+
+        lblAjoutImmatriculation.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblAjoutImmatriculation.setText("Immatriculation du véhicule : ");
 
         lblAjoutVehicule.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblAjoutVehicule.setText("Ajouter un véhicule");
-
-        lblImmatriculation.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblImmatriculation.setText("Immatriculation du véhicule : ");
-
-        lblMarque.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblMarque.setText("La marque du véhicule : ");
-
-        lblModeleVehicule.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblModeleVehicule.setText("Le modèle du véhicule : ");
-
-        lblAnneeVehicule.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblAnneeVehicule.setText("L'année du véhicule :");
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel5.setText("La catégorie du véhicule :");
 
         btnAjoutVehicule.setText("Ajouter le véhicule");
         btnAjoutVehicule.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -64,8 +64,8 @@ public class FrmAdminAjoutVehicule extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -75,32 +75,31 @@ public class FrmAdminAjoutVehicule extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblModeleVehicule)
-                                    .addComponent(lblAnneeVehicule)
-                                    .addComponent(jLabel5))
+                                    .addComponent(lblAjoutModeleVehicule)
+                                    .addComponent(lblAjoutAnneeVehicule)
+                                    .addComponent(lblAjoutCategorie))
                                 .addGap(36, 36, 36)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtModeleVehicule, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                                    .addComponent(ycAnneeVehicule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(txtAjoutModeleVehicule, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                                    .addComponent(ycAjoutAnneeVehicule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cboAjoutCategorie, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblImmatriculation)
-                                    .addComponent(lblMarque))
+                                    .addComponent(lblAjoutImmatriculation)
+                                    .addComponent(lblAjoutMarque))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtImmatriculation)
-                                    .addComponent(txtMarque, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)))))
+                                    .addComponent(txtAjoutImmatriculation)
+                                    .addComponent(txtAjoutMarque, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(122, 122, 122)
-                                .addComponent(lblAjoutVehicule))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(132, 132, 132)
-                                .addComponent(btnAjoutVehicule)))
+                        .addGap(132, 132, 132)
+                        .addComponent(btnAjoutVehicule)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(125, 125, 125)
+                .addComponent(lblAjoutVehicule)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,47 +108,85 @@ public class FrmAdminAjoutVehicule extends javax.swing.JPanel {
                 .addComponent(lblAjoutVehicule)
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblImmatriculation)
-                    .addComponent(txtImmatriculation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblAjoutImmatriculation)
+                    .addComponent(txtAjoutImmatriculation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblMarque)
-                    .addComponent(txtMarque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblAjoutMarque)
+                    .addComponent(txtAjoutMarque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblModeleVehicule)
-                    .addComponent(txtModeleVehicule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblAjoutModeleVehicule)
+                    .addComponent(txtAjoutModeleVehicule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblAnneeVehicule)
-                    .addComponent(ycAnneeVehicule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblAjoutAnneeVehicule)
+                    .addComponent(ycAjoutAnneeVehicule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblAjoutCategorie)
+                    .addComponent(cboAjoutCategorie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addComponent(btnAjoutVehicule)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
+
+        pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAjoutVehiculeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAjoutVehiculeMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAjoutVehiculeMouseClicked
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(FrmAdminAjoutVehicule.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(FrmAdminAjoutVehicule.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(FrmAdminAjoutVehicule.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(FrmAdminAjoutVehicule.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FrmAdminAjoutVehicule().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAjoutVehicule;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JComboBox<String> cboAjoutCategorie;
+    private javax.swing.JLabel lblAjoutAnneeVehicule;
+    private javax.swing.JLabel lblAjoutCategorie;
+    private javax.swing.JLabel lblAjoutImmatriculation;
+    private javax.swing.JLabel lblAjoutMarque;
+    private javax.swing.JLabel lblAjoutModeleVehicule;
     private javax.swing.JLabel lblAjoutVehicule;
-    private javax.swing.JLabel lblAnneeVehicule;
-    private javax.swing.JLabel lblImmatriculation;
-    private javax.swing.JLabel lblMarque;
-    private javax.swing.JLabel lblModeleVehicule;
-    private javax.swing.JTextField txtImmatriculation;
-    private javax.swing.JTextField txtMarque;
-    private javax.swing.JTextField txtModeleVehicule;
-    private com.toedter.calendar.JYearChooser ycAnneeVehicule;
+    private javax.swing.JTextField txtAjoutImmatriculation;
+    private javax.swing.JTextField txtAjoutMarque;
+    private javax.swing.JTextField txtAjoutModeleVehicule;
+    private com.toedter.calendar.JYearChooser ycAjoutAnneeVehicule;
     // End of variables declaration//GEN-END:variables
 }

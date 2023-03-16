@@ -309,13 +309,13 @@ public class FrmAdminAcceuil extends javax.swing.JFrame {
 
     private void btnAdminStatistiqueMoniteurMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminStatistiqueMoniteurMouseClicked
         // TODO add your handling code here:
-        FrmAdminStatistiqueMoniteurEtVehicule frm = new FrmAdminStatistiqueMoniteurEtVehicule();
+        FrmAdminStatsMoniteurEtVehicule frm = new FrmAdminStatsMoniteurEtVehicule();
         frm.setVisible(true);
     }//GEN-LAST:event_btnAdminStatistiqueMoniteurMouseClicked
 
     private void btnAdminStatistiqueLeconsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminStatistiqueLeconsMouseClicked
         // TODO add your handling code here:
-        FrmAdminStatistiqueLecons frm = new FrmAdminStatistiqueLecons();
+        FrmAdminStatsLecons frm = new FrmAdminStatsLecons();
         frm.setVisible(true);
     }//GEN-LAST:event_btnAdminStatistiqueLeconsMouseClicked
 
