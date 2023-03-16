@@ -26,29 +26,29 @@ public class FrmAdministrateurConnexion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblMoniteurMotDePasse = new javax.swing.JLabel();
-        txtMoniteurIdentifiant = new javax.swing.JTextField();
-        txtMoniteurMotDePasse = new javax.swing.JTextField();
+        lblAdminMotDePasse = new javax.swing.JLabel();
+        txtAdminLogin = new javax.swing.JTextField();
+        txtAdminMdp = new javax.swing.JTextField();
         btnMoniteurConnexion = new javax.swing.JButton();
-        btnMoniteurSinscrire = new javax.swing.JButton();
-        lblMoniteurTitre = new javax.swing.JLabel();
-        lblMoniteurConnexion = new javax.swing.JLabel();
-        lblMoniteurIdentifiant = new javax.swing.JLabel();
+        lblAdminTitre = new javax.swing.JLabel();
+        lblAdminConnexion = new javax.swing.JLabel();
+        lblAdminLogin = new javax.swing.JLabel();
         btnEAdministrateurRetourConnexion = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        lblMoniteurMotDePasse.setText("Mot de passe :");
+        lblAdminMotDePasse.setText("Mot de passe :");
 
         btnMoniteurConnexion.setText("Connexion");
+        btnMoniteurConnexion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMoniteurConnexionMouseClicked(evt);
+            }
+        });
 
-        btnMoniteurSinscrire.setText("S'inscrire ");
+        lblAdminTitre.setText("LeRebours-auto");
 
-        lblMoniteurTitre.setText("LeRebours-auto");
+        lblAdminConnexion.setText("Connexion à l'espace Administrateur");
 
-        lblMoniteurConnexion.setText("Connexion à l'espace Moniteur");
-
-        lblMoniteurIdentifiant.setText("Identifiant :");
+        lblAdminLogin.setText("Identifiant :");
 
         btnEAdministrateurRetourConnexion.setText("Retour");
         btnEAdministrateurRetourConnexion.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -61,57 +61,54 @@ public class FrmAdministrateurConnexion extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(149, 149, 149)
-                .addComponent(lblMoniteurTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblMoniteurIdentifiant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblMoniteurMotDePasse, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtMoniteurMotDePasse, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtMoniteurIdentifiant, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(155, Short.MAX_VALUE)
+                .addComponent(btnMoniteurConnexion)
+                .addGap(157, 157, 157))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblAdminConnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblAdminLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblAdminMotDePasse, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtAdminMdp, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAdminLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(85, 85, 85))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnMoniteurConnexion)
-                        .addGap(157, 157, 157))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblMoniteurConnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(106, 106, 106))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(btnEAdministrateurRetourConnexion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnMoniteurSinscrire)
-                .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(149, 149, 149)
+                        .addComponent(lblAdminTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(btnEAdministrateurRetourConnexion)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(lblMoniteurTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblAdminTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblMoniteurConnexion)
+                .addComponent(lblAdminConnexion)
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblMoniteurIdentifiant)
-                    .addComponent(txtMoniteurIdentifiant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblAdminLogin)
+                    .addComponent(txtAdminLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblMoniteurMotDePasse)
-                    .addComponent(txtMoniteurMotDePasse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblAdminMotDePasse)
+                    .addComponent(txtAdminMdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(49, 49, 49)
                 .addComponent(btnMoniteurConnexion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnMoniteurSinscrire)
-                    .addComponent(btnEAdministrateurRetourConnexion))
+                .addComponent(btnEAdministrateurRetourConnexion)
                 .addContainerGap())
         );
 
@@ -123,6 +120,12 @@ public class FrmAdministrateurConnexion extends javax.swing.JFrame {
         FrmPrincipal frm = new FrmPrincipal();
         frm.setVisible(true);
     }//GEN-LAST:event_btnEAdministrateurRetourConnexionMouseClicked
+
+    private void btnMoniteurConnexionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMoniteurConnexionMouseClicked
+        // TODO add your handling code here:
+        FrmAdminAcceuil frm = new FrmAdminAcceuil();
+        frm.setVisible(true);
+    }//GEN-LAST:event_btnMoniteurConnexionMouseClicked
 
     /**
      * @param args the command line arguments
@@ -163,12 +166,11 @@ public class FrmAdministrateurConnexion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEAdministrateurRetourConnexion;
     private javax.swing.JButton btnMoniteurConnexion;
-    private javax.swing.JButton btnMoniteurSinscrire;
-    private javax.swing.JLabel lblMoniteurConnexion;
-    private javax.swing.JLabel lblMoniteurIdentifiant;
-    private javax.swing.JLabel lblMoniteurMotDePasse;
-    private javax.swing.JLabel lblMoniteurTitre;
-    private javax.swing.JTextField txtMoniteurIdentifiant;
-    private javax.swing.JTextField txtMoniteurMotDePasse;
+    private javax.swing.JLabel lblAdminConnexion;
+    private javax.swing.JLabel lblAdminLogin;
+    private javax.swing.JLabel lblAdminMotDePasse;
+    private javax.swing.JLabel lblAdminTitre;
+    private javax.swing.JTextField txtAdminLogin;
+    private javax.swing.JTextField txtAdminMdp;
     // End of variables declaration//GEN-END:variables
 }

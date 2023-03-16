@@ -5,8 +5,6 @@
 package Vues;
 
 import Controlers.CtrlEleve;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,7 +16,6 @@ public class FrmAdminAjoutMoniteur extends javax.swing.JFrame {
     /**
      * Creates new form FrmEleveInscription
      */
-    CtrlEleve ctrlEleve;
     public FrmAdminAjoutMoniteur() {
         initComponents();
     }
@@ -230,23 +227,10 @@ public class FrmAdminAjoutMoniteur extends javax.swing.JFrame {
         else if(txtAjoutMoniteurMdp.getText().equals("")){
             JOptionPane.showMessageDialog(this, "Veuillez Saisir un mdp","Choix du mdp",JOptionPane.WARNING_MESSAGE);
         }
-        else {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            String dateNaiss = sdf.format(dcAjoutMoniteurDateDeNaiss.getDate());
-            
-            int numEleve = ctrlEleve.recupDernierIdEleve() +1 ;
-            int sexe= 0 ;
-            if("Femme".equals(cboAjoutMoniteurSexe.getSelectedItem().toString())){
-                sexe=1;
-            }
-            ctrlEleve.ajouterEleve(numEleve,txtAjoutMoniteurNom.getText(), txtAjoutMoniteurPrenom.getText(),sexe, dateNaiss, txtAjoutMoniteurInfoRue.getText(), Integer.parseInt(txtAjoutMoniteurCodePostale.getText()), txtAjoutMoniteurVille.getText(), txtAjoutMoniteurNumeroTelephone.getText(),txtAjoutMoniteurLogin.getText(), txtAjoutMoniteurMdp.getText());
-             JOptionPane.showMessageDialog(this, "Votre inscription est faite");
-        }
     }//GEN-LAST:event_btnAjoutMoniteurMouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        ctrlEleve = new CtrlEleve();
     }//GEN-LAST:event_formWindowOpened
 
     /**

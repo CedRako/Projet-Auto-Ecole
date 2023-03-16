@@ -4,7 +4,7 @@ package Vues;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-import Entities.Eleve;
+import Entities.Administrateur;
 
 /**
  *
@@ -15,15 +15,9 @@ public class FrmAdminAcceuil extends javax.swing.JFrame {
     /**
      * Creates new form FrmEleveAcceuil
      */
-    static Eleve eleve;
     
     public FrmAdminAcceuil() {
         initComponents();
-    }
-    
-    public FrmAdminAcceuil(Eleve unEleve){
-        initComponents();
-        eleve = unEleve;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,10 +29,9 @@ public class FrmAdminAcceuil extends javax.swing.JFrame {
     private void initComponents() {
 
         btnAdminLecon = new javax.swing.JButton();
-        btnEleveVoirStats = new javax.swing.JButton();
+        btnAdminModiferVehicule = new javax.swing.JButton();
         txtMoniteurNomConnexion = new javax.swing.JScrollPane();
         txtAdminConnecte = new javax.swing.JTextPane();
-        btnEleveModifierInformation = new javax.swing.JButton();
         lblAdminNomConnexion = new javax.swing.JLabel();
         btnAdminAjouterVehicule = new javax.swing.JButton();
         lblTitreAdmin = new javax.swing.JLabel();
@@ -53,8 +46,9 @@ public class FrmAdminAcceuil extends javax.swing.JFrame {
         btnAdminAjouterMoniteur = new javax.swing.JButton();
         btnAdminVoirCA = new javax.swing.JButton();
         btnAdminStatistiqueMoniteur = new javax.swing.JButton();
+        btnAdminStatistiqueLecons = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -68,21 +62,14 @@ public class FrmAdminAcceuil extends javax.swing.JFrame {
             }
         });
 
-        btnEleveVoirStats.setText("Modifier un véhicule");
-        btnEleveVoirStats.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAdminModiferVehicule.setText("Modifier un véhicule");
+        btnAdminModiferVehicule.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnEleveVoirStatsMouseClicked(evt);
+                btnAdminModiferVehiculeMouseClicked(evt);
             }
         });
 
         txtMoniteurNomConnexion.setViewportView(txtAdminConnecte);
-
-        btnEleveModifierInformation.setText("Modifier mes informations personnelles");
-        btnEleveModifierInformation.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnEleveModifierInformationMouseClicked(evt);
-            }
-        });
 
         lblAdminNomConnexion.setText("Vous êtes connecté en tant que  :");
 
@@ -98,7 +85,7 @@ public class FrmAdminAcceuil extends javax.swing.JFrame {
         lblTitreAdmin.setText("ESPACE ADMIN");
 
         lblAdminPlannings.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblAdminPlannings.setText("Les Plannings :");
+        lblAdminPlannings.setText("Les Leçons :");
 
         btnAdminPlanningEleve.setText("Visualiser le planning d'un éleve");
         btnAdminPlanningEleve.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -158,37 +145,43 @@ public class FrmAdminAcceuil extends javax.swing.JFrame {
             }
         });
 
+        btnAdminStatistiqueLecons.setText("Statistique des leçons");
+        btnAdminStatistiqueLecons.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAdminStatistiqueLeconsMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(289, Short.MAX_VALUE)
                 .addComponent(lblTitreAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(234, 234, 234))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(btnEleveModifierInformation)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(lblAdminNomConnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(txtMoniteurNomConnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(179, 179, 179))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAdminLecon, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btnAdminAjouterCategorie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnAdminPlanningEleve, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnAdminMoniteurPlanning, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
-                                .addComponent(btnAdminModifCategorie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnAdminLecon, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
+                            .addComponent(btnAdminAjouterCategorie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAdminPlanningEleve, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAdminMoniteurPlanning, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
+                            .addComponent(btnAdminModifCategorie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAdminStatistiqueLecons, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnAdminAjouterVehicule, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
-                            .addComponent(btnEleveVoirStats, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
+                            .addComponent(btnAdminModiferVehicule, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
                             .addComponent(btnAdminVoirCA, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
                             .addComponent(btnAdminAjouterMoniteur, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnAdminStatistiqueMoniteur, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -227,13 +220,15 @@ public class FrmAdminAcceuil extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(17, 17, 17)
-                        .addComponent(btnEleveVoirStats))
+                        .addComponent(btnAdminModiferVehicule))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnAdminPlanningEleve)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAdminMoniteurPlanning)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAdminStatistiqueLecons)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAdminTitreCategories)
                     .addComponent(lblAdminTitreAutre))
@@ -247,9 +242,7 @@ public class FrmAdminAcceuil extends javax.swing.JFrame {
                     .addComponent(btnAdminStatistiqueMoniteur))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAdminVoirCA)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
-                .addComponent(btnEleveModifierInformation)
-                .addContainerGap())
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         pack();
@@ -259,58 +252,72 @@ public class FrmAdminAcceuil extends javax.swing.JFrame {
     private void btnAdminLeconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminLeconMouseClicked
         // TODO add your handling code here:
 
-         FrmElevePlanning frm= new FrmElevePlanning(eleve);
+        FrmAdminLecon frm= new FrmAdminLecon();
         frm.setVisible(true);
     }//GEN-LAST:event_btnAdminLeconMouseClicked
 
-    private void btnEleveVoirStatsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEleveVoirStatsMouseClicked
-        FrmEleveStatLecon frm = new FrmEleveStatLecon(eleve);
+    private void btnAdminModiferVehiculeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminModiferVehiculeMouseClicked
+        FrmAdminModifierVehicule frm = new FrmAdminModifierVehicule();
         frm.setVisible(true);
-    }//GEN-LAST:event_btnEleveVoirStatsMouseClicked
+    }//GEN-LAST:event_btnAdminModiferVehiculeMouseClicked
 
     private void btnAdminAjouterVehiculeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminAjouterVehiculeMouseClicked
-        FrmEleveInscriptionLecon frm = new FrmEleveInscriptionLecon(eleve);
+        FrmAdminAjoutVehicule frm = new FrmAdminAjoutVehicule();
         frm.setVisible(true);
     }//GEN-LAST:event_btnAdminAjouterVehiculeMouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        txtAdminConnecte.setText(eleve.getNom() + " " + eleve.getPrenom());
+        txtAdminConnecte.setText("Jacques Buffeteau");
     }//GEN-LAST:event_formWindowOpened
 
     private void btnAdminPlanningEleveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminPlanningEleveMouseClicked
         // TODO add your handling code here:
+        FrmAdminElevePlanning frm = new FrmAdminElevePlanning();
+        frm.setVisible(true);
     }//GEN-LAST:event_btnAdminPlanningEleveMouseClicked
 
     private void btnAdminMoniteurPlanningMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminMoniteurPlanningMouseClicked
         // TODO add your handling code here:
+        FrmAdminMoniteurPlanning frm = new FrmAdminMoniteurPlanning();
+        frm.setVisible(true);
     }//GEN-LAST:event_btnAdminMoniteurPlanningMouseClicked
 
     private void btnAdminAjouterCategorieMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminAjouterCategorieMouseClicked
         // TODO add your handling code here:
+        FrmAdminAjoutCategorie frm = new FrmAdminAjoutCategorie();
+        frm.setVisible(true);
     }//GEN-LAST:event_btnAdminAjouterCategorieMouseClicked
 
     private void btnAdminModifCategorieMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminModifCategorieMouseClicked
         // TODO add your handling code here:
+        FrmAdminModifierCategorie frm = new FrmAdminModifierCategorie();
+        frm.setVisible(true);
     }//GEN-LAST:event_btnAdminModifCategorieMouseClicked
 
     private void btnAdminAjouterMoniteurMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminAjouterMoniteurMouseClicked
         // TODO add your handling code here:
+        FrmAdminAjoutMoniteur frm = new FrmAdminAjoutMoniteur();
+        frm.setVisible(true);
     }//GEN-LAST:event_btnAdminAjouterMoniteurMouseClicked
 
     private void btnAdminVoirCAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminVoirCAMouseClicked
         // TODO add your handling code here:
+        FrmAdminChiffreDAffaires frm = new FrmAdminChiffreDAffaires();
+        frm.setVisible(true);
     }//GEN-LAST:event_btnAdminVoirCAMouseClicked
 
     private void btnAdminStatistiqueMoniteurMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminStatistiqueMoniteurMouseClicked
         // TODO add your handling code here:
+        FrmAdminStatistiqueMoniteurEtVehicule frm = new FrmAdminStatistiqueMoniteurEtVehicule();
+        frm.setVisible(true);
     }//GEN-LAST:event_btnAdminStatistiqueMoniteurMouseClicked
 
-    private void btnEleveModifierInformationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEleveModifierInformationMouseClicked
+    private void btnAdminStatistiqueLeconsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminStatistiqueLeconsMouseClicked
         // TODO add your handling code here:
-        FrmEleveModificationInformation frm= new FrmEleveModificationInformation(eleve);
+        FrmAdminStatistiqueLecons frm = new FrmAdminStatistiqueLecons();
         frm.setVisible(true);
-    }//GEN-LAST:event_btnEleveModifierInformationMouseClicked
+    }//GEN-LAST:event_btnAdminStatistiqueLeconsMouseClicked
 
     /**
      * @param args the command line arguments
@@ -354,12 +361,12 @@ public class FrmAdminAcceuil extends javax.swing.JFrame {
     private javax.swing.JButton btnAdminAjouterVehicule;
     private javax.swing.JButton btnAdminLecon;
     private javax.swing.JButton btnAdminModifCategorie;
+    private javax.swing.JButton btnAdminModiferVehicule;
     private javax.swing.JButton btnAdminMoniteurPlanning;
     private javax.swing.JButton btnAdminPlanningEleve;
+    private javax.swing.JButton btnAdminStatistiqueLecons;
     private javax.swing.JButton btnAdminStatistiqueMoniteur;
     private javax.swing.JButton btnAdminVoirCA;
-    private javax.swing.JButton btnEleveModifierInformation;
-    private javax.swing.JButton btnEleveVoirStats;
     private javax.swing.JLabel lblAdminNomConnexion;
     private javax.swing.JLabel lblAdminPlannings;
     private javax.swing.JLabel lblAdminTitreAutre;

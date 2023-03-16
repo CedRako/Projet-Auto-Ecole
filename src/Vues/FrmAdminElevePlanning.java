@@ -5,9 +5,7 @@
 package Vues;
 
 import Controlers.CtrlLecon;
-import Entities.Moniteur;
 import Tools.ModelJTable;
-import static Vues.FrmElevePlanning.eleve;
 
 /**
  *
@@ -17,17 +15,12 @@ public class FrmAdminElevePlanning extends javax.swing.JFrame {
 
     ModelJTable mdl;
     CtrlLecon ctrlLecon;
-    static Moniteur moniteur;
             
     /**
      * Creates new form FrmMoniteurPlanning
      */
     public FrmAdminElevePlanning() {
         initComponents();
-    }
-    public FrmAdminElevePlanning(Moniteur unMoniteur){
-        initComponents();
-        moniteur = unMoniteur;
     }
 
     /**
@@ -125,11 +118,7 @@ public class FrmAdminElevePlanning extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        ctrlLecon = new CtrlLecon();
-        mdl = new ModelJTable();
-        
-        mdl.loadDatasPlanningMoniteur(ctrlLecon.GetLeconByIdMoniteur(moniteur.getCodeMoniteur()));
-        tblAdminPlanningEleve.setModel(mdl);
+
     }//GEN-LAST:event_formWindowOpened
 
     /**
