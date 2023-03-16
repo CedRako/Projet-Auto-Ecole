@@ -303,7 +303,7 @@ public class FrmAdminAcceuil extends javax.swing.JFrame {
 
     private void btnAdminVoirCAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminVoirCAMouseClicked
         // TODO add your handling code here:
-        FrmAdminChiffreDAffaires frm = new FrmAdminChiffreDAffaires();
+        FrmAdminCA frm = new FrmAdminCA();
         frm.setVisible(true);
     }//GEN-LAST:event_btnAdminVoirCAMouseClicked
 
