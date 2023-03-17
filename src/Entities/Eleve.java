@@ -18,6 +18,7 @@ public class Eleve {
     private String Adresse1;
     private int CodePostal;
     private String Ville,Telephone;
+   
     public Eleve(int numEleve,String nom, String prenom,int sexe,Date DateDeNaissance, String Adresse1,int CodePostal,String Ville,String Telephone){
         this.numEleve=numEleve;
         this.nom=nom;
