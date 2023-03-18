@@ -243,11 +243,9 @@ public class FrmEleveInscriptionLecon extends javax.swing.JFrame {
 //            JOptionPane.showMessageDialog(null, "Sélectionner une heure","Choix de l'heure",JOptionPane.WARNING_MESSAGE);
 //        }
         else {
-            
             int numEleve = eleve.getNumEleve();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             String dateLecon = sdf.format(dcEleveInscriptionLeconDate.getDate());
-            
              // On récupère l'heure avec les JSPINNER
                     String heureSaisie = "";//spHeure.getValue() + ":" + spMinute.getValue();
                     String minuteSaisie = "";
@@ -267,9 +265,12 @@ public class FrmEleveInscriptionLecon extends javax.swing.JFrame {
             if("Oui".equals(cboPayee.getSelectedItem().toString())){
                 reglee=1;
             }
+            if(ctrlLecon.verifInscripLecon(ctrlMoniteur.getIdMoniteurByName(cboEleveInscriptionLeconMoniteur.getSelectedItem().toString()),eleve.getNumEleve(), dateLecon,ctrlVehicule.getCodeCateByModele(cboEleveInscriptionLeconVehicule.getSelectedItem().toString())) != null){
+                 JOptionPane.showMessageDialog(this, "Vous êtes déjà inscrit avec ce moniteur le même jour et pour le même type de permis","Dejà inscrit",JOptionPane.WARNING_MESSAGE);
+            }
+                
             
-            if(ctrlMoniteur.trouverLicenceMoniteur(ctrlMoniteur.getIdMoniteurByName(cboEleveInscriptionLeconMoniteur.getSelectedItem().toString()), ctrlVehicule.getCodeCateByModele(cboEleveInscriptionLeconVehicule.getSelectedItem().toString()) ) ){
-               
+            else if(ctrlMoniteur.trouverLicenceMoniteur(ctrlMoniteur.getIdMoniteurByName(cboEleveInscriptionLeconMoniteur.getSelectedItem().toString()), ctrlVehicule.getCodeCateByModele(cboEleveInscriptionLeconVehicule.getSelectedItem().toString()) ) ){
             ctrlLecon.AjouterLecon(dateLecon, heureRdv, ctrlMoniteur.getIdMoniteurByName(cboEleveInscriptionLeconMoniteur.getSelectedItem().toString()), numEleve, ctrlVehicule.getImmatriculationByModele(cboEleveInscriptionLeconVehicule.getSelectedItem().toString()), reglee);
             JOptionPane.showMessageDialog(this, "Vous avez été inscrit à la leçon");
             }

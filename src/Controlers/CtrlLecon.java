@@ -164,4 +164,27 @@ public class CtrlLecon {
         }
         return mesLecons;
     }
+      public Lecon verifInscripLecon(int numMoniteur,int codeEleve, String dateLecon,int codeCategorie ){ //Verifie si l'élève n'as pas déjà réservé une leçon le même jour avec le même moniteur pour la même catégorie de permis
+          Lecon uneLecon = null;
+            try {
+                ps= maCnx.prepareStatement("SELECT codeLecon,Date,heure,CodeMoniteur,CodeEleve,lecon.Immatriculation,reglee\n"+
+                    "FROM lecon\n"+
+                    "join vehicule on lecon.Immatriculation=vehicule.Immatriculation\n"+
+                    "Where CodeMoniteur = ? and codeEleve= ? and Date = ? and vehicule.Codecategorie=? \n"+
+                   " limit 1;");
+                ps.setInt(1, numMoniteur);
+                ps.setInt(2, codeEleve);
+                ps.setString(3, dateLecon);
+                ps.setInt(4,codeCategorie);
+                rs= ps.executeQuery();
+                while(rs.next()){
+                   uneLecon= new Lecon(rs.getInt(1),rs.getDate(2),rs.getString(3),rs.getInt(4),rs.getInt (5),rs.getString(6),rs.getInt(7));
+                }
+                ps.close();
+                rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(CtrlLecon.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return uneLecon;
+      }
 }
