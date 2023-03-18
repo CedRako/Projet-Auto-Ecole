@@ -11,7 +11,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.sql.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -187,4 +186,23 @@ public class CtrlLecon {
         }
         return uneLecon;
       }
+}
+        
+    public ArrayList<Lecon> getAllLecons() {
+        ArrayList<Lecon> lesLecons = new ArrayList<>();
+        
+        try {
+            ps= maCnx.prepareStatement("SELECT CodeLecon, Date, Heure, CodeMoniteur, CodeEleve, Immatriculation, Reglee FROM lecon;");
+            rs= ps.executeQuery();
+            while(rs.next()){
+                Lecon lecon= new Lecon(rs.getInt(1),rs.getDate(2),rs.getString(3),rs.getInt(4),rs.getInt (5),rs.getString(6),rs.getInt(7));
+                lesLecons.add(lecon);
+            }
+            ps.close();
+            rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(CtrlLecon.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lesLecons;
+    }
 }

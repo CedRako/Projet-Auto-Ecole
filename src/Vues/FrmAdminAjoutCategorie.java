@@ -4,12 +4,18 @@
  */
 package Vues;
 
+import Controlers.CtrlCategorie;
+import Tools.ConnexionBDD;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ninou
  */
 public class FrmAdminAjoutCategorie extends javax.swing.JFrame {
 
+    CtrlCategorie ctrlCategorie;
+    ConnexionBDD maCnx;
     /**
      * Creates new form FrmMoniteurAjoutLicence
      */
@@ -102,13 +108,21 @@ public class FrmAdminAjoutCategorie extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
- 
-    }//GEN-LAST:event_formWindowOpened
-
     private void btnAdminAjoutCatégorieMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminAjoutCatégorieMouseClicked
-
+        if (txtAdminNomCategorie.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Le champ libellé ne peut pas être vide !","Saisie d'une catégorie",JOptionPane.WARNING_MESSAGE);
+        } else if (txtAdminPrixCategorie.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Le champ prix ne peut pas être vide !","Saisie d'une catégorie",JOptionPane.WARNING_MESSAGE);
+        } else {
+            ctrlCategorie.addCategorie(txtAdminNomCategorie.getText(), Double.valueOf(txtAdminPrixCategorie.getText()));
+            JOptionPane.showMessageDialog(this, "La catégorie a été ajoutée");
+        }
     }//GEN-LAST:event_btnAdminAjoutCatégorieMouseClicked
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        ctrlCategorie = new CtrlCategorie();
+        maCnx = new ConnexionBDD();
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

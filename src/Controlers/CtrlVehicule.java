@@ -43,7 +43,7 @@ public class CtrlVehicule {
     }
     
     
-     public ArrayList<Vehicule> getAllVehiculeByCateg(int codeCateg){
+    public ArrayList<Vehicule> getAllVehiculeByCateg(int codeCateg){
         ArrayList<Vehicule> lesVehiculesId= new ArrayList<>();
         try {
             ps=Macnx.prepareStatement("Select Immatriculation ,Marque,Modele,Annee,CodeCategorie From vehicule where CodeCategorie = ?");
@@ -62,7 +62,7 @@ public class CtrlVehicule {
     }
      
      
-     public String getImmatriculationByModele (String modele){
+    public String getImmatriculationByModele (String modele){
            String imma="";
         try {
             ps=Macnx.prepareStatement("Select immatriculation from vehicule where modele = ?");
@@ -76,9 +76,9 @@ public class CtrlVehicule {
             Logger.getLogger(CtrlVehicule.class.getName()).log(Level.SEVERE, null, ex);
         }
             return imma;
-     }
+    }
      
-     public int getCodeCateByModele(String modele){
+    public int getCodeCateByModele(String modele){
          int codeCate=0;
          try {
             ps=Macnx.prepareStatement("Select codeCategorie from vehicule where modele = ?");
@@ -92,5 +92,21 @@ public class CtrlVehicule {
             Logger.getLogger(CtrlVehicule.class.getName()).log(Level.SEVERE, null, ex);
         }
             return codeCate;
-     }
+    }
+     
+    public void addVehicule(String immatriculation, String marque, String modele, int annee, int categorie) {
+        try {
+            ps = Macnx.prepareStatement("INSERT INTO vehicule VALUES (?,?,?,?,?);");
+            ps.setString(1, immatriculation);
+            ps.setString(2, marque);
+            ps.setString(3, modele);
+            ps.setInt(4, annee);
+            ps.setInt(5, categorie);
+            ps.executeUpdate();
+            ps.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(CtrlVehicule.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
 }
