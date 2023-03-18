@@ -33,8 +33,8 @@ public class CtrlLecon {
         try {
             ps= maCnx.prepareStatement("SELECT codeLecon,Date,heure,CodeMoniteur,CodeEleve,Immatriculation,reglee\n" +
                     "FROM lecon\n" +
-                    "Where CodeEleve=? AND Date > CURDATE()\n"+
-                     "Order by DATE asc");
+                    "Where CodeEleve=? \n"+
+                     "Order by DATE Desc");
             ps.setInt(1, numEleve);
             rs= ps.executeQuery();
             while(rs.next()){
@@ -149,8 +149,8 @@ public class CtrlLecon {
         try {
             ps= maCnx.prepareStatement("SELECT codeLecon,Date,heure,CodeMoniteur,CodeEleve,Immatriculation,reglee\n" +
                     "FROM lecon\n" +
-                    "Where CodeMoniteur=? AND Date > CURDATE()\n"+
-                     "Order by DATE asc");
+                    "Where CodeMoniteur=?\n"+
+                     "Order by DATE Desc");
             ps.setInt(1, numMoniteur);
             rs= ps.executeQuery();
             while(rs.next()){
