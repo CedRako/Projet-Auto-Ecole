@@ -72,7 +72,7 @@ public class FrmAdminAjoutMoniteur extends javax.swing.JFrame {
 
         lblAjoutMoniteurRue.setText("Numéro et nom de la rue :");
 
-        lblAjoutMoniteurCodePostale.setText("Code postale :");
+        lblAjoutMoniteurCodePostale.setText("Code postal :");
 
         lblAjoutMoniteurVille.setText("Ville :");
 
