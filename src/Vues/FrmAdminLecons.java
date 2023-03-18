@@ -4,17 +4,25 @@
  */
 package Vues;
 
+import Controlers.CtrlLecon;
+import Entities.Lecon;
+import Tools.ModelJTable;
+import java.util.ArrayList;
+
 /**
  *
  * @author Rakotomalala Cédric
  */
 public class FrmAdminLecons extends javax.swing.JFrame {
 
+    CtrlLecon ctrlLecon;
+    ModelJTable mdl;
     /**
      * Creates new form FrmAdminLecons
      */
     public FrmAdminLecons() {
         initComponents();
+        ctrlLecon = new CtrlLecon();
     }
 
     /**
@@ -29,6 +37,12 @@ public class FrmAdminLecons extends javax.swing.JFrame {
         lblAdminLecons = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblAdminLecons = new javax.swing.JTable();
+
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         lblAdminLecons.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblAdminLecons.setText("Le planning des Leçons");
@@ -62,6 +76,13 @@ public class FrmAdminLecons extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        mdl = new ModelJTable();
+        
+        mdl.LoadDatasLecon(ctrlLecon.getAllLecons());
+        tblAdminLecons.setModel(mdl);
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

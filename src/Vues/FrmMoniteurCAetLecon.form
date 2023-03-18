@@ -56,9 +56,9 @@
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="dcDateMoniteurCA" min="-2" pref="134" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="lblAu" min="-2" pref="21" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lblAu" min="-2" pref="21" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="dcDateMoniteurCA2" min="-2" pref="134" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -105,19 +105,19 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="lblTitre">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Chiffre D&apos;affaire sur une p&#xe9;riode "/>
+        <Property name="text" type="java.lang.String" value="Chiffre D&apos;affaires sur une p&#xe9;riode "/>
       </Properties>
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="dcDateMoniteurCA">
     </Component>
     <Component class="javax.swing.JLabel" name="lblMoniteurDateCA">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Choisir une Periode:"/>
+        <Property name="text" type="java.lang.String" value="Choisir une P&#xe9;riode:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblMoniteurCA">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ce jour l&#xe0; vous avez fait un chiffre d&apos;affaire de : "/>
+        <Property name="text" type="java.lang.String" value="Ce jour l&#xe0; vous avez fait un chiffre d&apos;affaires de : "/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">

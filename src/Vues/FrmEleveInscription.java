@@ -55,6 +55,8 @@ public class FrmEleveInscription extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtMdp = new javax.swing.JTextField();
         cboSexe = new javax.swing.JComboBox<>();
+        lblMdpConfirmer = new javax.swing.JLabel();
+        txtMdpConfirmer = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -97,14 +99,12 @@ public class FrmEleveInscription extends javax.swing.JFrame {
 
         cboSexe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Homme", "Femme" }));
 
+        lblMdpConfirmer.setText("Confirmer le mot de passe :");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(175, 175, 175)
-                .addComponent(lblEleveInscription)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -117,7 +117,8 @@ public class FrmEleveInscription extends javax.swing.JFrame {
                             .addComponent(lblEleveNumeroTelephone, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1)
                             .addComponent(lblLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)))
+                            .addComponent(jLabel2)
+                            .addComponent(lblMdpConfirmer)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(53, 53, 53)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,13 +136,19 @@ public class FrmEleveInscription extends javax.swing.JFrame {
                         .addComponent(txtEleveNumeroTelephone)
                         .addComponent(dcDateDeNaiss, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                        .addComponent(txtMdp))
+                        .addComponent(txtMdp)
+                        .addComponent(txtMdpConfirmer))
                     .addComponent(cboSexe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnEleveInscription)
-                .addGap(174, 174, 174))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(175, 175, 175)
+                        .addComponent(lblEleveInscription))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(173, 173, 173)
+                        .addComponent(btnEleveInscription)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,7 +191,7 @@ public class FrmEleveInscription extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(lblEleveMail))
                     .addComponent(cboSexe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblLogin)
                     .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -192,9 +199,13 @@ public class FrmEleveInscription extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtMdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(1, 1, 1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMdpConfirmer)
+                    .addComponent(txtMdpConfirmer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEleveInscription)
-                .addGap(26, 26, 26))
+                .addGap(9, 9, 9))
         );
 
         pack();
@@ -229,6 +240,9 @@ public class FrmEleveInscription extends javax.swing.JFrame {
         }
         else if(txtMdp.getText().equals("")){
             JOptionPane.showMessageDialog(this, "Veuillez Saisir un mdp","Choix du mdp",JOptionPane.WARNING_MESSAGE);
+        }
+        else if(!txtMdp.getText().equals(txtMdpConfirmer.getText())){
+            JOptionPane.showMessageDialog(this, "L'un des mots de passe est incorrecte","Erreur saisie de mdp",JOptionPane.WARNING_MESSAGE);
         }
         else {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -300,6 +314,7 @@ public class FrmEleveInscription extends javax.swing.JFrame {
     private javax.swing.JLabel lblEleveRue;
     private javax.swing.JLabel lblEleveVille;
     private javax.swing.JLabel lblLogin;
+    private javax.swing.JLabel lblMdpConfirmer;
     private javax.swing.JTextField txtEleveCodePostale;
     private javax.swing.JTextField txtEleveInfoRue;
     private javax.swing.JTextField txtEleveNom;
@@ -308,5 +323,6 @@ public class FrmEleveInscription extends javax.swing.JFrame {
     private javax.swing.JTextField txtEleveVille;
     private javax.swing.JTextField txtLogin;
     private javax.swing.JTextField txtMdp;
+    private javax.swing.JTextField txtMdpConfirmer;
     // End of variables declaration//GEN-END:variables
 }
