@@ -9,8 +9,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
@@ -23,7 +21,7 @@ public class CtrlEleve {
     private ResultSet rs;
     
 public CtrlEleve() {
-    maCnx= ConnexionBDD.getCnx();
+    maCnx = ConnexionBDD.getCnx();
 }
 
 
@@ -86,13 +84,11 @@ public Eleve verifEleve(String login , String mdp){
         }
     return moiEleve;
 }
+
 public int recupDernierIdEleve(){
     int derNumEleve=0;
         try {
-            ps=maCnx.prepareStatement("Select CodeEleve\n" +
-                    "FROM eleve\n" +
-                    "ORDER by CodeEleve DESC \n" +
-                    "limit 1");
+            ps=maCnx.prepareStatement("Select CodeEleve FROM eleve ORDER by CodeEleve DESC limit 1");
             rs = ps.executeQuery();
             rs.next();
             derNumEleve= rs.getInt(1);
@@ -107,9 +103,7 @@ public int recupDernierIdEleve(){
 public String getNomEleveById(int codeEleve){
         String nomEleve="";
         try {
-            ps=maCnx.prepareStatement("SELECT nom\n" +
-                    "FROM `eleve`\n" +
-                    "WHERE CodeEleve=?;");
+            ps=maCnx.prepareStatement("SELECT nom FROM `eleve` WHERE CodeEleve=?;");
             ps.setInt(1, codeEleve);
             rs=ps.executeQuery();
             while(rs.next()){

@@ -60,11 +60,11 @@ public class FrmMoniteurCAetLecon extends javax.swing.JFrame {
             }
         });
 
-        lblTitre.setText("Chiffre D'affaire sur une période ");
+        lblTitre.setText("Chiffre D'affaires sur une période ");
 
-        lblMoniteurDateCA.setText("Choisir une Periode:");
+        lblMoniteurDateCA.setText("Choisir une Période:");
 
-        lblMoniteurCA.setText("Ce jour là vous avez fait un chiffre d'affaire de : ");
+        lblMoniteurCA.setText("Ce jour là vous avez fait un chiffre d'affaires de : ");
 
         jScrollPane1.setViewportView(txtMoniteurAfficheCA);
 
@@ -93,9 +93,9 @@ public class FrmMoniteurCAetLecon extends javax.swing.JFrame {
                                 .addGap(131, 131, 131))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(dcDateMoniteurCA, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblAu, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblAu, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(dcDateMoniteurCA2, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblMoniteurCA)
