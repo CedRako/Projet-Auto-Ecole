@@ -4,6 +4,14 @@
  */
 package Vues;
 
+import Controlers.CtrlCategorie;
+import Controlers.CtrlLecon;
+import Controlers.CtrlMoniteur;
+import Controlers.CtrlVehicule;
+import Entities.Categorie;
+import Entities.Moniteur;
+import Entities.Vehicule;
+
 /**
  *
  * @author Rakotomalala Cédric
@@ -13,6 +21,12 @@ public class FrmAdminStatsLecons extends javax.swing.JFrame {
     /**
      * Creates new form FrmAdminStatsLecons
      */
+    
+    CtrlLecon    ctrlLecon;
+    CtrlMoniteur ctrlMoniteur;
+    CtrlVehicule ctrlVehicule;
+    CtrlCategorie ctrlCategorie;
+    
     public FrmAdminStatsLecons() {
         initComponents();
     }
@@ -34,12 +48,18 @@ public class FrmAdminStatsLecons extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         cboStatCategorie = new javax.swing.JComboBox<>();
         btnAdminStatLecons = new javax.swing.JButton();
-        tctNbrLeconMoniteur = new javax.swing.JTextField();
+        txtNbrLeconMoniteur = new javax.swing.JTextField();
         txtNbrLeconVehicule = new javax.swing.JTextField();
         txtNbrLeconCategorie = new javax.swing.JTextField();
         lblNombreCategorie = new javax.swing.JLabel();
         lblNombreVehicule = new javax.swing.JLabel();
         lblNombreLeconMoniteur = new javax.swing.JLabel();
+
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         lblTitreStatLecon.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         lblTitreStatLecon.setText("Le nombre de leçons ");
@@ -50,37 +70,45 @@ public class FrmAdminStatsLecons extends javax.swing.JFrame {
 
         jLabel1.setText("Choisissez une catégorie");
 
-        cboStatCategorie.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cboStatCategorieActionPerformed(evt);
+        btnAdminStatLecons.setText("Voir le nombre de leçons");
+        btnAdminStatLecons.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAdminStatLeconsMouseClicked(evt);
             }
         });
 
-        btnAdminStatLecons.setText("Voir le nombre de leçons");
+        txtNbrLeconMoniteur.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtNbrLeconMoniteur.setEnabled(false);
 
-        lblNombreCategorie.setText("Le nombre de leçons de cette catégorie est de :");
+        txtNbrLeconVehicule.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtNbrLeconVehicule.setEnabled(false);
 
-        lblNombreVehicule.setText("Le nombre de leçons de ce véhicule est de :");
+        txtNbrLeconCategorie.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtNbrLeconCategorie.setEnabled(false);
 
-        lblNombreLeconMoniteur.setText("Le nombre de leçons de ce moniteur est de :");
+        lblNombreCategorie.setText("Le nombre de leçons pour cette catégorie est de :");
+
+        lblNombreVehicule.setText("Le nombre de fois que ce véhicule à été choisis est de :");
+
+        lblNombreLeconMoniteur.setText("Le nombre de fois que ce moniteur à été pris est de:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(107, 107, 107)
+                .addGap(76, 76, 76)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblNombreCategorie)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNbrLeconCategorie, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(lblNombreVehicule)
-                        .addGap(24, 24, 24)
-                        .addComponent(txtNbrLeconVehicule))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNbrLeconVehicule, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
+                        .addComponent(lblNombreLeconMoniteur)
+                        .addGap(21, 21, 21)
+                        .addComponent(txtNbrLeconMoniteur))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnAdminStatLecons, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
@@ -95,9 +123,9 @@ public class FrmAdminStatsLecons extends javax.swing.JFrame {
                                     .addComponent(cboStatMoniteur, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblNombreLeconMoniteur)
-                        .addGap(18, 18, 18)
-                        .addComponent(tctNbrLeconMoniteur)))
+                        .addComponent(lblNombreCategorie)
+                        .addGap(34, 34, 34)
+                        .addComponent(txtNbrLeconCategorie)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -126,7 +154,7 @@ public class FrmAdminStatsLecons extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombreLeconMoniteur)
-                    .addComponent(tctNbrLeconMoniteur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNbrLeconMoniteur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombreVehicule)
@@ -142,9 +170,35 @@ public class FrmAdminStatsLecons extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cboStatCategorieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboStatCategorieActionPerformed
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-    }//GEN-LAST:event_cboStatCategorieActionPerformed
+        ctrlLecon= new CtrlLecon();
+        ctrlMoniteur = new CtrlMoniteur();
+        ctrlVehicule = new CtrlVehicule();
+        ctrlCategorie = new CtrlCategorie();
+        
+        for(Moniteur unMoniteur : ctrlMoniteur.GetAllMoniteur()){
+            cboStatMoniteur.addItem(unMoniteur.getNom());
+        }
+        for(Vehicule unVehicule : ctrlVehicule.getAllVehicule()){
+            cboStatVehicule.addItem(unVehicule.getImmatriculation());
+        }
+        
+        for (Categorie cat : ctrlCategorie.getAllCategorie()){
+            cboStatCategorie.addItem(cat.getLibelle());
+        }
+          
+        
+    }//GEN-LAST:event_formWindowOpened
+
+    private void btnAdminStatLeconsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminStatLeconsMouseClicked
+        // TODO add your handling code here:
+        
+        txtNbrLeconMoniteur.setText(String.valueOf(ctrlLecon.getNombreDeLeconMoniteur(ctrlMoniteur.getIdMoniteurByName(cboStatMoniteur.getSelectedItem().toString())) ));
+        txtNbrLeconVehicule.setText(String.valueOf(ctrlLecon.getNombreDeLeconVehicule(cboStatVehicule.getSelectedItem().toString())));
+        txtNbrLeconCategorie.setText(String.valueOf(ctrlLecon.getNombreDeLeconCategorie(ctrlCategorie.getIdCategorie(cboStatCategorie.getSelectedItem().toString()))));
+        
+    }//GEN-LAST:event_btnAdminStatLeconsMouseClicked
 
     /**
      * @param args the command line arguments
@@ -193,8 +247,8 @@ public class FrmAdminStatsLecons extends javax.swing.JFrame {
     private javax.swing.JLabel lblNombreLeconMoniteur;
     private javax.swing.JLabel lblNombreVehicule;
     private javax.swing.JLabel lblTitreStatLecon;
-    private javax.swing.JTextField tctNbrLeconMoniteur;
     private javax.swing.JTextField txtNbrLeconCategorie;
+    private javax.swing.JTextField txtNbrLeconMoniteur;
     private javax.swing.JTextField txtNbrLeconVehicule;
     // End of variables declaration//GEN-END:variables
 }
