@@ -164,7 +164,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
             public void run() {
                 new FrmPrincipal().setVisible(true);
                 
-                System.out.println("Hello Nathan, Brahim and Cédric");
+                System.out.println("Lancement du programme");
             }
         });
     }
