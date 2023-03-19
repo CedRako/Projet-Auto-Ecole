@@ -41,7 +41,7 @@ public class CtrlCategorie {
          return lesCategories;
     }
 
-    public int getIdCategorie(String libelle){
+    public int getIdCategorie(String libelle){ // Recuperer l'ID CATEGORIE par Libelle
         int idCat=0;
         try{
             ps=maCnx.prepareStatement("SELECT CodeCategorie FROM categorie WHERE Libelle = ?");

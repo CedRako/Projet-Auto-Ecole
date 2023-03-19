@@ -5,7 +5,7 @@
 package Vues;
 
 import Controlers.CtrlLecon;
-import Entities.Moniteur;
+import Controlers.CtrlMoniteur;
 import Tools.ModelJTable;
 import static Vues.FrmElevePlanning.eleve;
 
@@ -16,7 +16,8 @@ import static Vues.FrmElevePlanning.eleve;
 public class FrmAdminMoniteurPlanning extends javax.swing.JFrame {
 
     ModelJTable mdl;
-  
+    CtrlLecon ctrlLecon;
+    CtrlMoniteur ctrlMoniteur;
             
     /**
      * Creates new form FrmMoniteurPlanning
@@ -70,6 +71,11 @@ public class FrmAdminMoniteurPlanning extends javax.swing.JFrame {
 
             }
         ));
+        tblAdminChoisirMoniteur.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblAdminChoisirMoniteurMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblAdminChoisirMoniteur);
 
         lblPlanningMoniteur.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -120,8 +126,23 @@ public class FrmAdminMoniteurPlanning extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-
+        ctrlMoniteur = new CtrlMoniteur();
+        ctrlLecon = new CtrlLecon();
+        mdl = new ModelJTable();
+        
+        mdl.loadDatasAllMoniteur(ctrlMoniteur.GetAllMoniteur());
+        tblAdminChoisirMoniteur.setModel(mdl);
+        
     }//GEN-LAST:event_formWindowOpened
+
+    private void tblAdminChoisirMoniteurMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAdminChoisirMoniteurMouseClicked
+        // TODO add your handling code here:
+        int numMoniteur = Integer.parseInt(tblAdminChoisirMoniteur.getValueAt(tblAdminChoisirMoniteur.getSelectedRow(), 0).toString());
+        
+        mdl = new ModelJTable();
+        mdl.loadDatasPlanningMoniteur(ctrlLecon.GetLeconByIdMoniteur(numMoniteur));
+        tblAdminPlanningMoniteur.setModel(mdl);
+    }//GEN-LAST:event_tblAdminChoisirMoniteurMouseClicked
 
     /**
      * @param args the command line arguments

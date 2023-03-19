@@ -7,7 +7,9 @@ package Tools;
 
 import Controlers.CtrlEleve;
 import Controlers.CtrlMoniteur;
+import Entities.Eleve;
 import Entities.Lecon;
+import Entities.Moniteur;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
@@ -43,7 +45,7 @@ public class ModelJTable extends AbstractTableModel
         return colonnes[column];
     }
     
-    public void LoadDatasLecon(ArrayList<Lecon> mesLecons)
+    public void LoadDatasLecon(ArrayList<Lecon> mesLecons) // Les leçons d'un élève
     {
         // Remplir tableaux colonnes
         CtrlMoniteur= new CtrlMoniteur();
@@ -79,5 +81,46 @@ public class ModelJTable extends AbstractTableModel
         }
         fireTableDataChanged();
     }
+     public void loadDatasAllEleve (ArrayList<Eleve> lesEleves)
+     {
+        colonnes = new String[]{"CodeEleve","nom","prenom","Sexe","DateDeNaissance","Adresse","CodePostal","Ville","Telephone"};
+        lignes = new Object [lesEleves.size()][9];
+        int i =0;
+        for (Eleve unEleve : lesEleves)
+        {
+            lignes[i][0]= unEleve.getNumEleve();
+            lignes[i][1]= unEleve.getNom();
+            lignes[i][2]= unEleve.getPrenom();
+            lignes[i][3]= unEleve.getSexe();
+            lignes[i][4]= unEleve.getDateDeNaissance();
+            lignes[i][5]= unEleve.getAdresse1();
+            lignes[i][6]= unEleve.getCodePostal();
+            lignes[i][7]= unEleve.getVille();
+            lignes[i][8]= unEleve.getTelephone();
+            i++;
+        }
+        fireTableDataChanged();
+     }
+     
+     public void loadDatasAllMoniteur (ArrayList<Moniteur> lesMoniteurs)
+     {
+        colonnes = new String[]{"CodeMoniteur","nom","prenom","Sexe","DateDeNaissance","Adresse","CodePostal","Ville","Telephone"};
+        lignes = new Object [lesMoniteurs.size()][9];
+        int i =0;
+        for (Moniteur unMoniteur : lesMoniteurs)
+        {
+            lignes[i][0]= unMoniteur.getCodeMoniteur();
+            lignes[i][1]= unMoniteur.getNom();
+            lignes[i][2]= unMoniteur.getPrenom();
+            lignes[i][3]= unMoniteur.getSexe();
+            lignes[i][4]= unMoniteur.getDateDeNaissance();
+            lignes[i][5]= unMoniteur.getAdresse();
+            lignes[i][6]= unMoniteur.getCodePostal();
+            lignes[i][7]= unMoniteur.getVille();
+            lignes[i][8]= unMoniteur.getTelephone();
+            i++;
+        }
+        fireTableDataChanged();
+     }
 
 }

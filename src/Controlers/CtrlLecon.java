@@ -108,7 +108,7 @@ public class CtrlLecon {
     public int nombreDeLeconParEleveEtPermisFini(int numEleve,int codeCate){
         int nbrLecon=0;
         try {
-            ps=maCnx.prepareCall("SELECT COUNT(CodeLecon)\n" +
+            ps=maCnx.prepareStatement("SELECT COUNT(CodeLecon)\n" +
                     "FROM lecon\n" +
                     "join vehicule on lecon.Immatriculation=vehicule.Immatriculation\n" +
                     "WHERE vehicule.codeCategorie=? and CodeEleve=? and Date <CURDATE();");
@@ -127,7 +127,7 @@ public class CtrlLecon {
     public int nombreDeLeconParEleveEtPermisAfaire(int numEleve,int codeCate){
         int nbrLecon=0;
         try {
-            ps=maCnx.prepareCall("SELECT COUNT(CodeLecon)\n" +
+            ps=maCnx.prepareStatement("SELECT COUNT(CodeLecon)\n" +
                     "FROM lecon\n" +
                     "join vehicule on lecon.Immatriculation=vehicule.Immatriculation\n" +
                     "WHERE vehicule.codeCategorie=? and CodeEleve=? and Date > CURDATE();");
@@ -186,7 +186,6 @@ public class CtrlLecon {
         }
         return uneLecon;
       }
-}
         
     public ArrayList<Lecon> getAllLecons() {
         ArrayList<Lecon> lesLecons = new ArrayList<>();
@@ -205,4 +204,58 @@ public class CtrlLecon {
         }
         return lesLecons;
     }
+    
+    public int getNombreDeLeconMoniteur(int numMoni){
+        int nbrLeconMoniteur =0;
+        try {
+            ps=maCnx.prepareStatement("SELECT COUNT(CodeLecon) AS nombreLecon\n" +
+                    "FROM lecon \n" +
+                    "WHERE CodeMoniteur = ?;");
+            ps.setInt(1, numMoni);
+            rs=ps.executeQuery();
+            rs.next();
+            nbrLeconMoniteur= rs.getInt(1);
+            ps.close();
+            rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(CtrlMoniteur.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return nbrLeconMoniteur;
+    }
+    public int getNombreDeLeconVehicule(String immatriculation){
+        int nbrLeconVehicule = 0;
+          try {
+            ps=maCnx.prepareStatement("SELECT COUNT(CodeLecon) AS nombreLecon\n" +
+                    "FROM lecon \n" +
+                    "WHERE Immatriculation = ?;");
+            ps.setString(1, immatriculation);
+            rs=ps.executeQuery();
+            rs.next();
+            nbrLeconVehicule= rs.getInt(1);
+            ps.close();
+            rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(CtrlMoniteur.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            return nbrLeconVehicule;
+    }
+        public int getNombreDeLeconCategorie(int codeCategorie){
+        int nbrLeconCategorie = 0;
+          try {
+            ps=maCnx.prepareStatement("SELECT COUNT(CodeLecon)\n" +
+                    "FROM lecon\n" +
+                    "join vehicule on lecon.Immatriculation=vehicule.Immatriculation\n" +
+                    "WHERE vehicule.codeCategorie=?;");
+            ps.setInt(1, codeCategorie);
+            rs=ps.executeQuery();
+            rs.next();
+            nbrLeconCategorie= rs.getInt(1);
+            ps.close();
+            rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(CtrlMoniteur.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            return nbrLeconCategorie;
+    }
+    
 }

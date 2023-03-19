@@ -5,6 +5,9 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowOpened" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowOpened"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -21,20 +24,20 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="lblNombreCategorie" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="lblNombreVehicule" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtNbrLeconCategorie" pref="107" max="32767" attributes="0"/>
+                      <Component id="txtNbrLeconVehicule" pref="113" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="lblNombreVehicule" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                      <Component id="txtNbrLeconVehicule" max="32767" attributes="0"/>
+                      <Component id="lblNombreLeconMoniteur" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <Component id="txtNbrLeconMoniteur" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="btnAdminStatLecons" alignment="1" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
@@ -54,9 +57,9 @@
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="lblNombreLeconMoniteur" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="tctNbrLeconMoniteur" max="32767" attributes="0"/>
+                      <Component id="lblNombreCategorie" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="txtNbrLeconCategorie" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -93,7 +96,7 @@
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblNombreLeconMoniteur" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tctNbrLeconMoniteur" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNbrLeconMoniteur" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -145,9 +148,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="cboStatCategorie">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cboStatCategorieActionPerformed"/>
-      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
@@ -156,26 +156,47 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Voir le nombre de le&#xe7;ons"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAdminStatLeconsMouseClicked"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="tctNbrLeconMoniteur">
+    <Component class="javax.swing.JTextField" name="txtNbrLeconMoniteur">
+      <Properties>
+        <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtNbrLeconVehicule">
+      <Properties>
+        <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtNbrLeconCategorie">
+      <Properties>
+        <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblNombreCategorie">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Le nombre de le&#xe7;ons de cette cat&#xe9;gorie est de :"/>
+        <Property name="text" type="java.lang.String" value="Le nombre de le&#xe7;ons pour cette cat&#xe9;gorie est de :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblNombreVehicule">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Le nombre de le&#xe7;ons de ce v&#xe9;hicule est de :"/>
+        <Property name="text" type="java.lang.String" value="Le nombre de fois que ce v&#xe9;hicule &#xe0; &#xe9;t&#xe9; choisis est de :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblNombreLeconMoniteur">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Le nombre de le&#xe7;ons de ce moniteur est de :"/>
+        <Property name="text" type="java.lang.String" value="Le nombre de fois que ce moniteur &#xe0; &#xe9;t&#xe9; pris est de:"/>
       </Properties>
     </Component>
   </SubComponents>
