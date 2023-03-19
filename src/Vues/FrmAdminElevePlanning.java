@@ -6,6 +6,7 @@ package Vues;
 
 import Controlers.CtrlLecon;
 import Tools.ModelJTable;
+import Controlers.CtrlEleve;
 
 /**
  *
@@ -15,6 +16,8 @@ public class FrmAdminElevePlanning extends javax.swing.JFrame {
 
     ModelJTable mdl;
     CtrlLecon ctrlLecon;
+    CtrlEleve ctrlEleve;
+    
             
     /**
      * Creates new form FrmMoniteurPlanning
@@ -68,6 +71,11 @@ public class FrmAdminElevePlanning extends javax.swing.JFrame {
 
             }
         ));
+        tblAdminChoisirEleve.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblAdminChoisirEleveMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblAdminChoisirEleve);
 
         lblPlanningEleve.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -81,15 +89,15 @@ public class FrmAdminElevePlanning extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(179, 179, 179)
                 .addComponent(lblChoisirEleve)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 504, Short.MAX_VALUE)
                 .addComponent(lblPlanningEleve)
                 .addGap(162, 162, 162))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -110,7 +118,7 @@ public class FrmAdminElevePlanning extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addContainerGap(194, Short.MAX_VALUE))
         );
 
         pack();
@@ -118,8 +126,22 @@ public class FrmAdminElevePlanning extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-
+         ctrlEleve = new CtrlEleve();
+         ctrlLecon = new CtrlLecon();
+         mdl = new ModelJTable();
+         
+         mdl.loadDatasAllEleve(ctrlEleve.getAllEleve());
+         tblAdminChoisirEleve.setModel(mdl);
     }//GEN-LAST:event_formWindowOpened
+
+    private void tblAdminChoisirEleveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAdminChoisirEleveMouseClicked
+        // TODO add your handling code here:
+        int numeroEleve= Integer.parseInt(tblAdminChoisirEleve.getValueAt(tblAdminChoisirEleve.getSelectedRow(), 0).toString());
+        
+        mdl = new ModelJTable();
+        mdl.LoadDatasLecon(ctrlLecon.GetLeconByIdEleve(numeroEleve));
+        tblAdminPlanningEleve.setModel(mdl);
+    }//GEN-LAST:event_tblAdminChoisirEleveMouseClicked
 
     /**
      * @param args the command line arguments
