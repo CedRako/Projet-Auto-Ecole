@@ -80,7 +80,7 @@ public class FrmEleveModificationInformation extends javax.swing.JFrame {
 
         lblEleveModifRue.setText("Numéro et nom de la rue :");
 
-        lblEleveModifCodePostale.setText("Code postal :");
+        lblEleveModifCodePostale.setText("Code postale :");
 
         lblEleveModifVille.setText("Ville :");
 
@@ -98,16 +98,21 @@ public class FrmEleveModificationInformation extends javax.swing.JFrame {
                         .addGap(0, 26, Short.MAX_VALUE)
                         .addComponent(lblEleveModifTitre))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblEleveModifNom, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblEleveModifDateDeNaissance, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblEleveModifAdresse, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblEleveModifNumeroTelephone, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblEleveModifPrenom)
-                            .addComponent(lblEleveModifRue, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblEleveModifCodePostale, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblEleveModifVille, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblEleveModifNom, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblEleveModifDateDeNaissance, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblEleveModifAdresse, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblEleveModifNumeroTelephone, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblEleveModifPrenom)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(53, 53, 53)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblEleveModifRue, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblEleveModifVille, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblEleveModifCodePostale, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtEleveModifNom)
@@ -119,7 +124,7 @@ public class FrmEleveModificationInformation extends javax.swing.JFrame {
                             .addComponent(dcEleveModifDateNaissance, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))))
                 .addGap(31, 31, 31))
             .addGroup(layout.createSequentialGroup()
-                .addGap(114, 114, 114)
+                .addGap(106, 106, 106)
                 .addComponent(btnEleveModifInformations)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -159,9 +164,9 @@ public class FrmEleveModificationInformation extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEleveModifNumeroTelephone)
                     .addComponent(txtEleveModifNumeroTelephone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(btnEleveModifInformations)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addGap(31, 31, 31))
         );
 
         pack();

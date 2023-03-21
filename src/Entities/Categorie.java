@@ -12,32 +12,10 @@ public class Categorie {
     private int numCategorie;
     private String libelle;
     private double Prix;
-
     public Categorie(int unNumCategorie,String unLibelle,double unPrix){
         this.numCategorie=unNumCategorie;
         this.libelle=unLibelle;
         this.Prix=unPrix;
-    }
-    
-    /**
-     * @param numCategorie the numCategorie to set
-     */
-    public void setNumCategorie(int numCategorie) {
-        this.numCategorie = numCategorie;
-    }
-
-    /**
-     * @param libelle the libelle to set
-     */
-    public void setLibelle(String libelle) {
-        this.libelle = libelle;
-    }
-
-    /**
-     * @param Prix the Prix to set
-     */
-    public void setPrix(double Prix) {
-        this.Prix = Prix;
     }
 
     /**

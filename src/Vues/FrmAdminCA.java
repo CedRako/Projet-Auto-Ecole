@@ -4,16 +4,12 @@
  */
 package Vues;
 
-import Controlers.CtrlLecon;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author Rakotomalala Cédric
  */
 public class FrmAdminCA extends javax.swing.JFrame {
 
-    CtrlLecon ctrlLecon;
     /**
      * Creates new form FrmAdminCA
      */
@@ -40,12 +36,6 @@ public class FrmAdminCA extends javax.swing.JFrame {
         txtChiffreDAFFAIRE = new javax.swing.JTextField();
         btnAdminGrapheChiffreDAFffaire = new javax.swing.JButton();
 
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
-
         lblChiffreDAffaire.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblChiffreDAffaire.setText("Le Chiffre d'Affaire");
 
@@ -57,6 +47,11 @@ public class FrmAdminCA extends javax.swing.JFrame {
         btnAdminChiffreDAffaires.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnAdminChiffreDAffairesMouseClicked(evt);
+            }
+        });
+        btnAdminChiffreDAffaires.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdminChiffreDAffairesActionPerformed(evt);
             }
         });
 
@@ -123,25 +118,16 @@ public class FrmAdminCA extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAdminChiffreDAffairesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminChiffreDAffairesMouseClicked
-        if (dcAdminChiffreDAffaire1.getDate().toString().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Le champ date du ne peut pas être vide !","Chiffre d'affaires",JOptionPane.WARNING_MESSAGE);
-
-        } else if (dcAdminChiffreDAffaire2.getDate().toString().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Le champ date au ne peut pas être vide !","Chiffre d'affaires",JOptionPane.WARNING_MESSAGE);
-        } else {
-            Double chiffreAffaires = ctrlLecon.getChiffreAffaires(dcAdminChiffreDAffaire1.getDate(), dcAdminChiffreDAffaire2.getDate());
-            
-            txtChiffreDAFFAIRE.setText(Double.toString(chiffreAffaires));
-        }
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnAdminChiffreDAffairesMouseClicked
 
     private void btnAdminGrapheChiffreDAFffaireMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminGrapheChiffreDAFffaireMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAdminGrapheChiffreDAFffaireMouseClicked
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        ctrlLecon = new CtrlLecon();
-    }//GEN-LAST:event_formWindowOpened
+    private void btnAdminChiffreDAffairesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminChiffreDAffairesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAdminChiffreDAffairesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,8 +175,4 @@ public class FrmAdminCA extends javax.swing.JFrame {
     private javax.swing.JLabel lblPeriode;
     private javax.swing.JTextField txtChiffreDAFFAIRE;
     // End of variables declaration//GEN-END:variables
-
-    private void remove(CtrlLecon ctrlLecon) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }

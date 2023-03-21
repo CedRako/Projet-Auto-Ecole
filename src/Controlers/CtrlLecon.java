@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.sql.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -32,8 +33,8 @@ public class CtrlLecon {
         try {
             ps= maCnx.prepareStatement("SELECT codeLecon,Date,heure,CodeMoniteur,CodeEleve,Immatriculation,reglee\n" +
                     "FROM lecon\n" +
-                    "Where CodeEleve=? \n"+
-                     "Order by DATE Desc");
+                    "Where CodeEleve=? AND Date > CURDATE()\n"+
+                     "Order by DATE asc");
             ps.setInt(1, numEleve);
             rs= ps.executeQuery();
             while(rs.next()){
@@ -148,8 +149,8 @@ public class CtrlLecon {
         try {
             ps= maCnx.prepareStatement("SELECT codeLecon,Date,heure,CodeMoniteur,CodeEleve,Immatriculation,reglee\n" +
                     "FROM lecon\n" +
-                    "Where CodeMoniteur=?\n"+
-                     "Order by DATE Desc");
+                    "Where CodeMoniteur=? AND Date > CURDATE()\n"+
+                     "Order by DATE asc");
             ps.setInt(1, numMoniteur);
             rs= ps.executeQuery();
             while(rs.next()){
@@ -162,23 +163,5 @@ public class CtrlLecon {
             Logger.getLogger(CtrlLecon.class.getName()).log(Level.SEVERE, null, ex);
         }
         return mesLecons;
-    }
-        
-    public ArrayList<Lecon> getAllLecons() {
-        ArrayList<Lecon> lesLecons = new ArrayList<>();
-        
-        try {
-            ps= maCnx.prepareStatement("SELECT CodeLecon, Date, Heure, CodeMoniteur, CodeEleve, Immatriculation, Reglee FROM lecon;");
-            rs= ps.executeQuery();
-            while(rs.next()){
-                Lecon lecon= new Lecon(rs.getInt(1),rs.getDate(2),rs.getString(3),rs.getInt(4),rs.getInt (5),rs.getString(6),rs.getInt(7));
-                lesLecons.add(lecon);
-            }
-            ps.close();
-            rs.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(CtrlLecon.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return lesLecons;
     }
 }
