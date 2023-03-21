@@ -22,9 +22,11 @@ public class CtrlVehicule {
     private Connection Macnx;
     private PreparedStatement ps;
     private ResultSet rs;
+
     public CtrlVehicule(){
         Macnx = ConnexionBDD.getCnx();
     }
+
     public ArrayList<Vehicule> getAllVehicule(){
         ArrayList<Vehicule> lesVehicules= new ArrayList<>();
         try {
@@ -107,6 +109,40 @@ public class CtrlVehicule {
         } catch (SQLException ex) {
             Logger.getLogger(CtrlVehicule.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public Vehicule getVehicule(String immatriculation) {
+        Vehicule vehicule = null;
         
+        try {
+            ps = Macnx.prepareStatement("SELECT immatriculation, marque, modele, annee, codeCategorie FROM vehicule WHERE immatriculation = ?;");
+            ps.setString(1, immatriculation);
+            rs = ps.executeQuery();
+            rs.next();
+            
+            vehicule = new Vehicule(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5));
+            
+            ps.close();
+            rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(CtrlVehicule.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return vehicule;
+    }
+    
+    public void editVehicule(Vehicule vehicule) {
+        try {
+            ps = Macnx.prepareStatement("UPDATE vehicule SET marque = ?, modele = ?, annee = ?, codeCategorie = ? WHERE immatriculation = ?;");
+            ps.setString(1, vehicule.getMarque());
+            ps.setString(2, vehicule.getModele());
+            ps.setInt(3, vehicule.getAnnee());
+            ps.setInt(4, vehicule.getCodeCategorie());
+            ps.setString(5, vehicule.getImmatriculation());
+            ps.executeUpdate();
+            ps.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(CtrlVehicule.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
