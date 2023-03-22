@@ -66,6 +66,7 @@ public class FrmEleveAcceuil extends javax.swing.JFrame {
         });
 
         txtEleveConnecte.setEditable(false);
+        txtEleveConnecte.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txtMoniteurNomConnexion.setViewportView(txtEleveConnecte);
 
         btnEleveModifierInformation.setText("Modifier mes informations personnelles");

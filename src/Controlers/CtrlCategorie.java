@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  */
 public class CtrlCategorie {
     private Connection maCnx;
-    private PreparedStatement ps ;
+    private PreparedStatement ps;
     private ResultSet rs;
     
     public CtrlCategorie(){
@@ -40,19 +40,89 @@ public class CtrlCategorie {
         }
          return lesCategories;
     }
-    public int getIdCategorie(String libelle){
+
+    public int getIdCategorie(String libelle){ // Recuperer l'ID CATEGORIE par Libelle
         int idCat=0;
         try{
-            ps=maCnx.prepareStatement("Select CodeCategorie from categorie where libelle= ?");
+            ps=maCnx.prepareStatement("SELECT CodeCategorie FROM categorie WHERE Libelle = ?");
             ps.setString(1, libelle);
             rs=ps.executeQuery();
+            
             rs.next();
-            idCat=rs.getInt(1);
+            idCat = rs.getInt(1);
+            
             ps.close();
             rs.close();
-        }catch (SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(CtrlCategorie.class.getName()).log(Level.SEVERE, null, ex);
         }
         return idCat;
+    }
+    
+    public Categorie getCategorie(int id) {
+        Categorie categorie = null;
+
+        try {
+            ps = maCnx.prepareStatement("SELECT CodeCategorie, libelle, prix FROM categorie WHERE CodeCategorie = ?;");
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            rs.next();
+            
+            categorie = new Categorie(rs.getInt(1), rs.getString(2), rs.getDouble(3));
+            
+            ps.close();
+            rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(CtrlCategorie.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return categorie;
+    }
+    
+    public void addCategorie(String libelle, Double prix) {
+        try {
+            int lastCodeCategorie = this.getLastCodeCategorie();
+            
+            ps = maCnx.prepareStatement("INSERT INTO categorie VALUES (?,?,?);");
+            ps.setInt(1, lastCodeCategorie);
+            ps.setString(2, libelle);
+            ps.setDouble(3, prix);
+            ps.executeUpdate();
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(CtrlCategorie.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public int getLastCodeCategorie() {;
+        int lastCodeCategorie = 0;
+        try {
+            ps = maCnx.prepareStatement("SELECT codeCategorie + 1 AS CodeCategorie FROM categorie ORDER BY codeCategorie DESC LIMIT 1;");
+            rs = ps.executeQuery();
+            rs.next();
+            lastCodeCategorie = rs.getInt(1);
+            ps.close();
+            rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(CtrlCategorie.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lastCodeCategorie;
+    }
+    
+    public void editCategorie(String ancienLibelle ,String libelle, Double prix) {
+        int codeCategorie = this.getIdCategorie(ancienLibelle);
+
+        try {
+            ps = maCnx.prepareStatement("UPDATE categorie SET libelle = ?, prix = ? WHERE codeCategorie = ?;");
+            ps.setString(1, libelle);
+            ps.setDouble(2, prix);
+            ps.setInt(3, codeCategorie);
+            ps.executeUpdate();
+            ps.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(CtrlCategorie.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 }

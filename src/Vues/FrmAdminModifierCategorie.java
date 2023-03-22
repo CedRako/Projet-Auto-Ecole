@@ -4,12 +4,17 @@
  */
 package Vues;
 
+import Controlers.CtrlCategorie;
+import Entities.Categorie;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ninou
  */
 public class FrmAdminModifierCategorie extends javax.swing.JFrame {
-
+    
+    CtrlCategorie ctrlCategorie;
     /**
      * Creates new form FrmMoniteurAjoutLicence
      */
@@ -55,6 +60,12 @@ public class FrmAdminModifierCategorie extends javax.swing.JFrame {
         btnAdminAjoutCatégorie.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnAdminAjoutCatégorieMouseClicked(evt);
+            }
+        });
+
+        cboAdminNomCategorie.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cboAdminNomCategorieItemStateChanged(evt);
             }
         });
 
@@ -113,12 +124,24 @@ public class FrmAdminModifierCategorie extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
- 
+        ctrlCategorie = new CtrlCategorie();
+        
+        for (Categorie categorie : ctrlCategorie.getAllCategorie()) {
+            cboAdminNomCategorie.addItem(categorie.getLibelle());
+        }
     }//GEN-LAST:event_formWindowOpened
 
     private void btnAdminAjoutCatégorieMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminAjoutCatégorieMouseClicked
-
+        ctrlCategorie.editCategorie(cboAdminNomCategorie.getSelectedItem().toString(), txtAdminNomCategorie.getText(), Double.valueOf(txtAdminPrixCategorie.getText()));
+        JOptionPane.showMessageDialog(this, "Modification de la catégorie a été prise en compte");
     }//GEN-LAST:event_btnAdminAjoutCatégorieMouseClicked
+
+    private void cboAdminNomCategorieItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboAdminNomCategorieItemStateChanged
+        Categorie categorie = ctrlCategorie.getCategorie(ctrlCategorie.getIdCategorie(cboAdminNomCategorie.getSelectedItem().toString()));
+        
+        txtAdminNomCategorie.setText(categorie.getLibelle());
+        txtAdminPrixCategorie.setText(Double.toString(categorie.getPrix()));
+    }//GEN-LAST:event_cboAdminNomCategorieItemStateChanged
 
     /**
      * @param args the command line arguments

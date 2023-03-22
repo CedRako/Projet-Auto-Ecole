@@ -10,7 +10,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
@@ -23,10 +22,25 @@ public class CtrlEleve {
     private ResultSet rs;
     
 public CtrlEleve() {
-    maCnx= ConnexionBDD.getCnx();
+    maCnx = ConnexionBDD.getCnx();
 }
 
-
+public ArrayList<Eleve> getAllEleve(){
+     ArrayList<Eleve> LesEleves = new ArrayList<>();
+        try {
+            ps = maCnx.prepareStatement("Select CodeEleve,nom,prenom,Sexe,DateDeNaissance,Adresse,CodePostal,Ville,Telephone from eleve");
+            rs= ps.executeQuery();
+            while(rs.next()){
+                Eleve unEleve= new Eleve(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4),rs.getDate(5),rs.getString(6),rs.getInt(7),rs.getString(8),rs.getString(9));
+                LesEleves.add(unEleve);
+            }
+            ps.close();
+            rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(CtrlMoniteur.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return LesEleves;
+}
 
 public void ajouterEleve(int numEleve,String nom,String prenom,int Sexe ,String dateDeNaiss,String Adresse,int CodePostal,String Ville,String Telephone,String login,String mdp){
         try {
@@ -86,13 +100,11 @@ public Eleve verifEleve(String login , String mdp){
         }
     return moiEleve;
 }
+
 public int recupDernierIdEleve(){
     int derNumEleve=0;
         try {
-            ps=maCnx.prepareStatement("Select CodeEleve\n" +
-                    "FROM eleve\n" +
-                    "ORDER by CodeEleve DESC \n" +
-                    "limit 1");
+            ps=maCnx.prepareStatement("Select CodeEleve FROM eleve ORDER by CodeEleve DESC limit 1");
             rs = ps.executeQuery();
             rs.next();
             derNumEleve= rs.getInt(1);
@@ -107,9 +119,7 @@ public int recupDernierIdEleve(){
 public String getNomEleveById(int codeEleve){
         String nomEleve="";
         try {
-            ps=maCnx.prepareStatement("SELECT nom\n" +
-                    "FROM `eleve`\n" +
-                    "WHERE CodeEleve=?;");
+            ps=maCnx.prepareStatement("SELECT nom FROM `eleve` WHERE CodeEleve=?;");
             ps.setInt(1, codeEleve);
             rs=ps.executeQuery();
             while(rs.next()){

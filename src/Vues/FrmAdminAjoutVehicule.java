@@ -4,12 +4,18 @@
  */
 package Vues;
 
+import Controlers.CtrlCategorie;
+import Controlers.CtrlVehicule;
+import Entities.Categorie;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Rakotomalala Cédric
  */
 public class FrmAdminAjoutVehicule extends javax.swing.JFrame {
-
+    CtrlCategorie ctrlCategorie;
+    CtrlVehicule ctrlVehicule;
     /**
      * Creates new form FrmAdminAjoutVehicule1
      */
@@ -38,6 +44,12 @@ public class FrmAdminAjoutVehicule extends javax.swing.JFrame {
         txtAjoutImmatriculation = new javax.swing.JTextField();
         lblAjoutVehicule = new javax.swing.JLabel();
         btnAjoutVehicule = new javax.swing.JButton();
+
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         lblAjoutCategorie.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblAjoutCategorie.setText("La catégorie du véhicule :");
@@ -71,42 +83,40 @@ public class FrmAdminAjoutVehicule extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
+                        .addGap(125, 125, 125)
+                        .addComponent(lblAjoutVehicule))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblAjoutImmatriculation)
+                                    .addComponent(lblAjoutMarque))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtAjoutMarque, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+                                    .addComponent(txtAjoutImmatriculation)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblAjoutModeleVehicule)
                                     .addComponent(lblAjoutAnneeVehicule)
                                     .addComponent(lblAjoutCategorie))
                                 .addGap(36, 36, 36)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtAjoutModeleVehicule, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                                    .addComponent(ycAjoutAnneeVehicule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cboAjoutCategorie, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblAjoutImmatriculation)
-                                    .addComponent(lblAjoutMarque))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtAjoutImmatriculation)
-                                    .addComponent(txtAjoutMarque, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(ycAjoutAnneeVehicule, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cboAjoutCategorie, javax.swing.GroupLayout.Alignment.LEADING, 0, 148, Short.MAX_VALUE)
+                                    .addComponent(txtAjoutModeleVehicule, javax.swing.GroupLayout.Alignment.LEADING)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(132, 132, 132)
-                        .addComponent(btnAjoutVehicule)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(125, 125, 125)
-                .addComponent(lblAjoutVehicule)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(135, 135, 135)
+                        .addComponent(btnAjoutVehicule)))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(lblAjoutVehicule)
-                .addGap(29, 29, 29)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAjoutImmatriculation)
                     .addComponent(txtAjoutImmatriculation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -126,9 +136,9 @@ public class FrmAdminAjoutVehicule extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblAjoutCategorie)
                     .addComponent(cboAjoutCategorie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                .addGap(34, 34, 34)
                 .addComponent(btnAjoutVehicule)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();
@@ -136,8 +146,27 @@ public class FrmAdminAjoutVehicule extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAjoutVehiculeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAjoutVehiculeMouseClicked
-        // TODO add your handling code here:
+        if (txtAjoutImmatriculation.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Le champ immatriculation ne peut pas être vide !","Ajout d'un véhicule",JOptionPane.WARNING_MESSAGE);
+        } else if (txtAjoutMarque.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Le champ marque ne peut pas être vide !","Ajout d'un véhicule",JOptionPane.WARNING_MESSAGE);
+        } else if (txtAjoutModeleVehicule.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Le champ modèle ne peut pas être vide !","Ajout d'un véhicule",JOptionPane.WARNING_MESSAGE);
+        } else {
+            int categorie = ctrlCategorie.getIdCategorie(cboAjoutCategorie.getSelectedItem().toString());
+            ctrlVehicule.addVehicule(txtAjoutImmatriculation.getText(), txtAjoutMarque.getText(), txtAjoutModeleVehicule.getText(), ycAjoutAnneeVehicule.getValue() , categorie);
+            JOptionPane.showMessageDialog(this, "Le véhicule a été ajouté");
+        }
     }//GEN-LAST:event_btnAjoutVehiculeMouseClicked
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        ctrlCategorie = new CtrlCategorie();
+        ctrlVehicule = new CtrlVehicule();
+        
+        for (Categorie categorie: ctrlCategorie.getAllCategorie()) {
+            cboAjoutCategorie.addItem(categorie.getLibelle());
+        }
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

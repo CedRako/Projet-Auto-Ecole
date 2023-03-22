@@ -14,11 +14,7 @@ import Entities.Vehicule;
 import Entities.Eleve;
 import Tools.ConnexionBDD;
 import Tools.ModelJTable;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import java.sql.Date;
 import java.text.SimpleDateFormat;
 
 /**
@@ -66,10 +62,12 @@ public class FrmEleveInscriptionLecon extends javax.swing.JFrame {
         cboEleveInscriptionLeconMoniteur = new javax.swing.JComboBox<>();
         cboEleveInscriptionLeconVehicule = new javax.swing.JComboBox<>();
         btnEleveInscriptionLecon = new javax.swing.JButton();
-        sprEleveInscriptionLeconHeure = new javax.swing.JSpinner();
+        spEleveInscriptionLeconHeure = new javax.swing.JSpinner();
         lblLEleveLeconH = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         cboPayee = new javax.swing.JComboBox<>();
+        lblLEleveLeconMinute = new javax.swing.JLabel();
+        spEleveInscriptionLeconMinute = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -82,7 +80,7 @@ public class FrmEleveInscriptionLecon extends javax.swing.JFrame {
 
         lblLEleveLeconDate.setText("Date :");
 
-        lblLEleveLeconHeure.setText("Heure :");
+        lblLEleveLeconHeure.setText("Heure du RDV :");
 
         lblLEleveLeconTypePermis.setText("Type de Permis : ");
 
@@ -103,11 +101,16 @@ public class FrmEleveInscriptionLecon extends javax.swing.JFrame {
             }
         });
 
-        lblLEleveLeconH.setText("heure");
+        spEleveInscriptionLeconHeure.setModel(new javax.swing.SpinnerNumberModel(8, 1, 20, 1));
 
         jLabel1.setText("Payer ? ");
 
         cboPayee.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Non", "Oui" }));
+
+        lblLEleveLeconMinute.setText("Minutes du RDV:");
+
+        spEleveInscriptionLeconMinute.setModel(new javax.swing.SpinnerNumberModel(0, 0, 45, 15));
+        spEleveInscriptionLeconMinute.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,36 +123,47 @@ public class FrmEleveInscriptionLecon extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(lblLEleveLeconHeure, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblLEleveLeconDate, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lblLEleveLeconTypePermis, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE))
-                                    .addComponent(lblLEleveLeconVehicule, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblLEleveLeconMoniteur))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(4, 4, 4)
-                                        .addComponent(dcEleveInscriptionLeconDate, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(cboEleveInscriptionLeconVehicule, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(cboEleveInscriptionLeconMoniteur, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(cboEleveInscriptionLeconTypePermis, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lblLEleveLeconTypePermis, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                                            .addComponent(lblLEleveLeconVehicule, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblLEleveLeconMoniteur))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblLEleveLeconMinute)
+                                        .addGap(36, 36, 36)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cboEleveInscriptionLeconVehicule, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cboEleveInscriptionLeconMoniteur, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cboEleveInscriptionLeconTypePermis, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(cboPayee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(spEleveInscriptionLeconHeure)
+                                            .addComponent(spEleveInscriptionLeconMinute, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblLEleveLeconH, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblLEleveLeconHeure)
+                                            .addComponent(lblLEleveLeconDate, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(btnEleveInscriptionLecon)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(sprEleveInscriptionLeconHeure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(lblLEleveLeconH, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addComponent(cboPayee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(0, 0, Short.MAX_VALUE))))))
-                            .addComponent(jLabel1)))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnEleveInscriptionLecon))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(71, 71, 71)
+                                                .addComponent(dcEleveInscriptionLeconDate, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(0, 6, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(98, 98, 98)
                         .addComponent(lblLEleveLeconTitre, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,9 +177,13 @@ public class FrmEleveInscriptionLecon extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblLEleveLeconHeure)
-                    .addComponent(sprEleveInscriptionLeconHeure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spEleveInscriptionLeconHeure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblLEleveLeconH))
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblLEleveLeconMinute)
+                    .addComponent(spEleveInscriptionLeconMinute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblLEleveLeconTypePermis)
                     .addComponent(cboEleveInscriptionLeconTypePermis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -181,7 +199,7 @@ public class FrmEleveInscriptionLecon extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(cboPayee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
                 .addComponent(btnEleveInscriptionLecon)
                 .addContainerGap())
         );
@@ -217,22 +235,39 @@ public class FrmEleveInscriptionLecon extends javax.swing.JFrame {
         if (dcEleveInscriptionLeconDate.getDate() == null){
             JOptionPane.showMessageDialog(null, "Sélectionner une Date","Choix de la date",JOptionPane.WARNING_MESSAGE);
         }
-        else if(Integer.parseInt(sprEleveInscriptionLeconHeure.getValue().toString() )== 0 ){
-            JOptionPane.showMessageDialog(null, "Sélectionner une heure","Choix de l'heure",JOptionPane.WARNING_MESSAGE);
-        }
+//        else if(Integer.parseInt(sprEleveInscriptionLeconHeure.getValue().toString() )== 0 ){
+//            JOptionPane.showMessageDialog(null, "Sélectionner une heure","Choix de l'heure",JOptionPane.WARNING_MESSAGE);
+//        }
         else {
             int numEleve = eleve.getNumEleve();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             String dateLecon = sdf.format(dcEleveInscriptionLeconDate.getDate());
+             // On récupère l'heure avec les JSPINNER
+                    String heureSaisie = "";//spHeure.getValue() + ":" + spMinute.getValue();
+                    String minuteSaisie = "";
+                    heureSaisie = spEleveInscriptionLeconHeure.getValue().toString();
+                    if(spEleveInscriptionLeconHeure.getValue().toString().length() == 1)
+                    {
+                        heureSaisie = "0"+ spEleveInscriptionLeconHeure.getValue().toString();
+                    }
+                    minuteSaisie = spEleveInscriptionLeconMinute.getValue().toString();
+                    if(spEleveInscriptionLeconMinute.getValue().toString().length() == 1)
+                    {
+                        minuteSaisie = spEleveInscriptionLeconMinute.getValue().toString() + "0";
+                    }
+                    String heureRdv = heureSaisie + ":" + minuteSaisie + ":00";
             
             int reglee= 0;
             if("Oui".equals(cboPayee.getSelectedItem().toString())){
                 reglee=1;
             }
+            if(ctrlLecon.verifInscripLecon(ctrlMoniteur.getIdMoniteurByName(cboEleveInscriptionLeconMoniteur.getSelectedItem().toString()),eleve.getNumEleve(), dateLecon,ctrlVehicule.getCodeCateByModele(cboEleveInscriptionLeconVehicule.getSelectedItem().toString())) != null){
+                 JOptionPane.showMessageDialog(this, "Vous êtes déjà inscrit avec ce moniteur le même jour et pour le même type de permis","Dejà inscrit",JOptionPane.WARNING_MESSAGE);
+            }
+                
             
-            if(ctrlMoniteur.trouverLicenceMoniteur(ctrlMoniteur.getIdMoniteurByName(cboEleveInscriptionLeconMoniteur.getSelectedItem().toString()), ctrlVehicule.getCodeCateByModele(cboEleveInscriptionLeconVehicule.getSelectedItem().toString()) ) ){
-               
-            ctrlLecon.AjouterLecon(dateLecon, sprEleveInscriptionLeconHeure.getValue().toString(), ctrlMoniteur.getIdMoniteurByName(cboEleveInscriptionLeconMoniteur.getSelectedItem().toString()), numEleve, ctrlVehicule.getImmatriculationByModele(cboEleveInscriptionLeconVehicule.getSelectedItem().toString()), reglee);
+            else if(ctrlMoniteur.trouverLicenceMoniteur(ctrlMoniteur.getIdMoniteurByName(cboEleveInscriptionLeconMoniteur.getSelectedItem().toString()), ctrlVehicule.getCodeCateByModele(cboEleveInscriptionLeconVehicule.getSelectedItem().toString()) ) ){
+            ctrlLecon.AjouterLecon(dateLecon, heureRdv, ctrlMoniteur.getIdMoniteurByName(cboEleveInscriptionLeconMoniteur.getSelectedItem().toString()), numEleve, ctrlVehicule.getImmatriculationByModele(cboEleveInscriptionLeconVehicule.getSelectedItem().toString()), reglee);
             JOptionPane.showMessageDialog(this, "Vous avez été inscrit à la leçon");
             }
             else{
@@ -299,10 +334,12 @@ public class FrmEleveInscriptionLecon extends javax.swing.JFrame {
     private javax.swing.JLabel lblLEleveLeconDate;
     private javax.swing.JLabel lblLEleveLeconH;
     private javax.swing.JLabel lblLEleveLeconHeure;
+    private javax.swing.JLabel lblLEleveLeconMinute;
     private javax.swing.JLabel lblLEleveLeconMoniteur;
     private javax.swing.JLabel lblLEleveLeconTitre;
     private javax.swing.JLabel lblLEleveLeconTypePermis;
     private javax.swing.JLabel lblLEleveLeconVehicule;
-    private javax.swing.JSpinner sprEleveInscriptionLeconHeure;
+    private javax.swing.JSpinner spEleveInscriptionLeconHeure;
+    private javax.swing.JSpinner spEleveInscriptionLeconMinute;
     // End of variables declaration//GEN-END:variables
 }

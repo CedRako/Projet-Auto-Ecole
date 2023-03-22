@@ -183,7 +183,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblAjoutMoniteurCodePostale">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Code postale :"/>
+        <Property name="text" type="java.lang.String" value="Code postal :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblAjoutMoniteurVille">
