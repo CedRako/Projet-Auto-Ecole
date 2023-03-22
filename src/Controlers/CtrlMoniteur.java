@@ -10,7 +10,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -45,9 +47,10 @@ public class CtrlMoniteur {
     public int getIdMoniteurByName(String nomM){
         int idMoni=0;
         try {
-            ps=cnx.prepareStatement("SELECT CodeMoniteur \n" +
-                    "FROM `moniteur`\n" +
-                    "WHERE nom =?;");
+            ps=cnx.prepareStatement("""
+                                    SELECT CodeMoniteur 
+                                    FROM `moniteur`
+                                    WHERE nom =?;""");
             ps.setString(1, nomM);
             rs=ps.executeQuery();
             while(rs.next()){
@@ -64,9 +67,10 @@ public class CtrlMoniteur {
     public String getNomMoniteurById(int codeMoniteur){
         String nomMoni="";
         try {
-            ps=cnx.prepareStatement("SELECT nom\n" +
-                    "FROM `moniteur`\n" +
-                    "WHERE CodeMoniteur=?;");
+            ps=cnx.prepareStatement("""
+                                    SELECT nom
+                                    FROM `moniteur`
+                                    WHERE CodeMoniteur=?;""");
             ps.setInt(1, codeMoniteur);
             rs=ps.executeQuery();
             while(rs.next()){
@@ -98,10 +102,11 @@ public class CtrlMoniteur {
     public int recupDernierIdLicence() {
         int derNumLicence=0;
         try {
-            ps=cnx.prepareStatement("Select CodeLicence\n" +
-                    "FROM licence\n" +
-                    "ORDER by CodeLicence DESC \n" +
-                    "limit 1");
+            ps=cnx.prepareStatement("""
+                                    Select CodeLicence
+                                    FROM licence
+                                    ORDER by CodeLicence DESC 
+                                    limit 1""");
             rs = ps.executeQuery();
             rs.next();
             derNumLicence= rs.getInt(1);
@@ -149,9 +154,10 @@ public class CtrlMoniteur {
         public Moniteur verifMoniteur(String login , String mdp){
     Moniteur moiMoniteur=null;
     try{
-        ps=cnx.prepareStatement("SELECT CodeMoniteur,NOM,Prenom,Sexe,DateDeNaissance,Adresse,CodePostal,Ville,Telephone\n" +
-        "FROM `moniteur`\n" +
-        "WHERE Login=? and Password =? ;");
+        ps=cnx.prepareStatement("""
+                                SELECT CodeMoniteur,NOM,Prenom,Sexe,DateDeNaissance,Adresse,CodePostal,Ville,Telephone
+                                FROM `moniteur`
+                                WHERE Login=? and Password =? ;""");
         ps.setString(1, login);
         ps.setString(2, mdp);
         rs= ps.executeQuery();
@@ -185,5 +191,47 @@ public class CtrlMoniteur {
             Logger.getLogger(CtrlMoniteur.class.getName()).log(Level.SEVERE, null, ex);
         }
             return CATotal;
+    }
+    
+    public void addMoniteur(String nom, String prenom, int sexe, Date dateDeNaissance, String adresse, int codePostal, String ville, String telephone, String identifiant, String motDePasse) {
+        int codeMoniteur = getLastCodeMoniteur();
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String dateDeNaissanceFormatString = sdf.format(dateDeNaissance);
+
+            ps = cnx.prepareStatement("INSERT INTO moniteur VALUES(?,?,?,?,?,?,?,?,?,?,?);");
+            ps.setInt(1, codeMoniteur);
+            ps.setString(2, nom);
+            ps.setString(3, prenom);
+            ps.setInt(4, sexe);
+            ps.setString(5, dateDeNaissanceFormatString);
+            ps.setString(6, adresse);
+            ps.setInt(7, codePostal);
+            ps.setString(8, ville);
+            ps.setString(9, telephone);
+            ps.setString(10, identifiant);
+            ps.setString(11, motDePasse);
+            ps.executeUpdate();
+            ps.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(CtrlMoniteur.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public int getLastCodeMoniteur() {
+        int lastCodeMoniteur = 0;
+        try {
+            ps = cnx.prepareStatement("SELECT codeMoniteur + 1 AS codeMoniteur FROM moniteur ORDER BY codeMoniteur DESC LIMIT 1;");
+            rs = ps.executeQuery();
+            rs.next();
+            
+            lastCodeMoniteur = rs.getInt(1);
+            
+            ps.close();
+            rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(CtrlMoniteur.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lastCodeMoniteur;
     }
 }

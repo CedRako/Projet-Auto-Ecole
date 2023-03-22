@@ -69,6 +69,7 @@ public class FrmAdminAcceuil extends javax.swing.JFrame {
             }
         });
 
+        txtAdminConnecte.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtMoniteurNomConnexion.setViewportView(txtAdminConnecte);
 
         lblAdminNomConnexion.setText("Vous êtes connecté en tant que  :");
