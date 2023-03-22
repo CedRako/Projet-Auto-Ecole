@@ -66,7 +66,7 @@ public class CtrlLecon {
     public float MontantTotalPermis(int numEleve, int codeCate){
         float montantT=0;
         try {
-            ps=maCnx.prepareStatement("SELECT  (SELECT Count(CodeLecon) FROM lecon join vehicule on lecon.Immatriculation= vehicule.Immatriculation where codeEleve = ? and vehicule.codeCategorie= ?) * prix as MontantTotal\n" +
+            ps=maCnx.prepareStatement("SELECT(SELECT Count(CodeLecon) FROM lecon join vehicule on lecon.Immatriculation= vehicule.Immatriculation where codeEleve = ? and vehicule.codeCategorie= ?) * prix as MontantTotal\n" +
                     "from categorie\n" +
                     "where CodeCategorie = ?;");
             ps.setInt(1, numEleve);
@@ -87,7 +87,7 @@ public class CtrlLecon {
     public float MontantTotalPermisARegler(int numEleve, int codeCate){
         float montantT=0;
         try {
-            ps=maCnx.prepareStatement("SELECT  (SELECT Count(CodeLecon) FROM lecon join vehicule on lecon.Immatriculation= vehicule.Immatriculation where codeEleve = ? and vehicule.codeCategorie= ? and reglee=0) * prix as MontantTotal\n" +
+            ps=maCnx.prepareStatement("SELECT(SELECT Count(CodeLecon) FROM lecon join vehicule on lecon.Immatriculation= vehicule.Immatriculation where codeEleve = ? and vehicule.codeCategorie= ? and reglee=0) * prix as MontantTotal\n" +
                     "from categorie\n" +
                     "where CodeCategorie = ?;");
             ps.setInt(1, numEleve);
