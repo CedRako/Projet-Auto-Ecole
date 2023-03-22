@@ -4,19 +4,12 @@
  */
 package Vues;
 
-import Controlers.CtrlAdministrateur;
-import Entities.Administrateur;
-import Tools.ConnexionBDD;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author ninou
  */
 public class FrmAdministrateurConnexion extends javax.swing.JFrame {
-    CtrlAdministrateur ctrlAdministrateur;
-    ConnexionBDD maCnx;
-    
+
     /**
      * Creates new form frmAdministrateurConnexion
      */
@@ -36,24 +29,18 @@ public class FrmAdministrateurConnexion extends javax.swing.JFrame {
         lblAdminMotDePasse = new javax.swing.JLabel();
         txtAdminLogin = new javax.swing.JTextField();
         txtAdminMdp = new javax.swing.JTextField();
-        btnAdministrateurConnexion = new javax.swing.JButton();
+        btnMoniteurConnexion = new javax.swing.JButton();
         lblAdminTitre = new javax.swing.JLabel();
         lblAdminConnexion = new javax.swing.JLabel();
         lblAdminLogin = new javax.swing.JLabel();
         btnEAdministrateurRetourConnexion = new javax.swing.JButton();
 
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
-
         lblAdminMotDePasse.setText("Mot de passe :");
 
-        btnAdministrateurConnexion.setText("Connexion");
-        btnAdministrateurConnexion.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnMoniteurConnexion.setText("Connexion");
+        btnMoniteurConnexion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAdministrateurConnexionMouseClicked(evt);
+                btnMoniteurConnexionMouseClicked(evt);
             }
         });
 
@@ -76,7 +63,7 @@ public class FrmAdministrateurConnexion extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(155, Short.MAX_VALUE)
-                .addComponent(btnAdministrateurConnexion)
+                .addComponent(btnMoniteurConnexion)
                 .addGap(157, 157, 157))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -119,7 +106,7 @@ public class FrmAdministrateurConnexion extends javax.swing.JFrame {
                     .addComponent(lblAdminMotDePasse)
                     .addComponent(txtAdminMdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(49, 49, 49)
-                .addComponent(btnAdministrateurConnexion)
+                .addComponent(btnMoniteurConnexion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(btnEAdministrateurRetourConnexion)
                 .addContainerGap())
@@ -134,29 +121,11 @@ public class FrmAdministrateurConnexion extends javax.swing.JFrame {
         frm.setVisible(true);
     }//GEN-LAST:event_btnEAdministrateurRetourConnexionMouseClicked
 
-    private void btnAdministrateurConnexionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdministrateurConnexionMouseClicked
-        if(txtAdminLogin.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Veuillez Saisir un login","Choix du login",JOptionPane.WARNING_MESSAGE);
-        }
-        else if(txtAdminMdp.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Veuillez Saisir un un mot de passe","Choix du MDP",JOptionPane.WARNING_MESSAGE);
-        }
-        else {
-            Administrateur administrateur = ctrlAdministrateur.verifAdministrateur(txtAdminLogin.getText(), txtAdminMdp.getText());
-            if(administrateur==null){
-                JOptionPane.showMessageDialog(null, "Veuillez Saisir des identifiants correctes","Login incorrect",JOptionPane.WARNING_MESSAGE);
-            }
-            else{
-                FrmAdminAcceuil frm= new FrmAdminAcceuil(administrateur);
-                frm.setVisible(true); 
-            }
-        }
-    }//GEN-LAST:event_btnAdministrateurConnexionMouseClicked
-
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        maCnx= new ConnexionBDD();
-        ctrlAdministrateur= new CtrlAdministrateur();
-    }//GEN-LAST:event_formWindowOpened
+    private void btnMoniteurConnexionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMoniteurConnexionMouseClicked
+        // TODO add your handling code here:
+        FrmAdminAcceuil frm = new FrmAdminAcceuil();
+        frm.setVisible(true);
+    }//GEN-LAST:event_btnMoniteurConnexionMouseClicked
 
     /**
      * @param args the command line arguments
@@ -195,8 +164,8 @@ public class FrmAdministrateurConnexion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdministrateurConnexion;
     private javax.swing.JButton btnEAdministrateurRetourConnexion;
+    private javax.swing.JButton btnMoniteurConnexion;
     private javax.swing.JLabel lblAdminConnexion;
     private javax.swing.JLabel lblAdminLogin;
     private javax.swing.JLabel lblAdminMotDePasse;

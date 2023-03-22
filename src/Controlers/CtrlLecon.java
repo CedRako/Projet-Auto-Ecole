@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.sql.Date;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,8 +35,8 @@ public class CtrlLecon {
         try {
             ps= maCnx.prepareStatement("SELECT codeLecon,Date,heure,CodeMoniteur,CodeEleve,Immatriculation,reglee\n" +
                     "FROM lecon\n" +
-                    "Where CodeEleve=? \n"+
-                     "Order by DATE Desc");
+                    "Where CodeEleve=? AND Date > CURDATE()\n"+
+                     "Order by DATE asc");
             ps.setInt(1, numEleve);
             rs= ps.executeQuery();
             while(rs.next()){
@@ -168,8 +169,7 @@ public class CtrlLecon {
             Logger.getLogger(CtrlLecon.class.getName()).log(Level.SEVERE, null, ex);
         }
         return mesLecons;
-    }
-        
+    }   
     public ArrayList<Lecon> getAllLecons() {
         ArrayList<Lecon> lesLecons = new ArrayList<>();
         

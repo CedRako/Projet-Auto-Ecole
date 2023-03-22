@@ -14,7 +14,11 @@ import Entities.Vehicule;
 import Entities.Eleve;
 import Tools.ConnexionBDD;
 import Tools.ModelJTable;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import java.sql.Date;
 import java.text.SimpleDateFormat;
 
 /**

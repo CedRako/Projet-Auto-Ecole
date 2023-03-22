@@ -118,9 +118,6 @@
     <Component class="javax.swing.JTextField" name="txtAdminPrixCategorie">
     </Component>
     <Component class="javax.swing.JComboBox" name="cboAdminNomCategorie">
-      <Events>
-        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cboAdminNomCategorieItemStateChanged"/>
-      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
