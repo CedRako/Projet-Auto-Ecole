@@ -42,6 +42,7 @@ public class FrmEleveAcceuil extends javax.swing.JFrame {
         lblEleveNomConnexion = new javax.swing.JLabel();
         btnEleveNouvelleLecon = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -64,8 +65,8 @@ public class FrmEleveAcceuil extends javax.swing.JFrame {
             }
         });
 
+        txtEleveConnecte.setEditable(false);
         txtEleveConnecte.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        txtEleveConnecte.setEnabled(false);
         txtMoniteurNomConnexion.setViewportView(txtEleveConnecte);
 
         btnEleveModifierInformation.setText("Modifier mes informations personnelles");
@@ -93,6 +94,13 @@ public class FrmEleveAcceuil extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ESPACE ELEVE");
 
+        jButton1.setText("Graphique de mes leçons");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -108,7 +116,8 @@ public class FrmEleveAcceuil extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(btnEleveplanning, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
                             .addComponent(btnEleveVoirStats, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnEleveNouvelleLecon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnEleveNouvelleLecon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(98, 98, 98))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(56, 56, 56)
@@ -125,19 +134,18 @@ public class FrmEleveAcceuil extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel1)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(lblEleveNomConnexion))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(txtMoniteurNomConnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblEleveNomConnexion)
+                    .addComponent(txtMoniteurNomConnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(btnEleveplanning)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEleveNouvelleLecon)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEleveVoirStats)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(btnEleveModifierInformation)
                 .addContainerGap())
@@ -179,6 +187,12 @@ public class FrmEleveAcceuil extends javax.swing.JFrame {
         frm.setVisible(true);
     }//GEN-LAST:event_btnEleveModifierInformationMouseClicked
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        FrmEleveGraphique frm = new FrmEleveGraphique(eleve);
+        frm.setVisible(true);
+    }//GEN-LAST:event_jButton1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -219,6 +233,7 @@ public class FrmEleveAcceuil extends javax.swing.JFrame {
     private javax.swing.JButton btnEleveNouvelleLecon;
     private javax.swing.JButton btnEleveVoirStats;
     private javax.swing.JButton btnEleveplanning;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblEleveNomConnexion;
     private javax.swing.JTextPane txtEleveConnecte;

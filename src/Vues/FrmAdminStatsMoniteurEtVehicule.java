@@ -33,7 +33,7 @@ public class FrmAdminStatsMoniteurEtVehicule extends javax.swing.JFrame {
         lblLesMoniteursSollicites = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblLesMoniteursSollicites = new javax.swing.JTable();
-        btnAdminGraphiqueLesVehicules = new javax.swing.JButton();
+        btnAdminGraphiqueLesMoniteurs = new javax.swing.JButton();
         lblLesVehiculesSollicites = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblLesVehiculesSollicites = new javax.swing.JTable();
@@ -42,30 +42,44 @@ public class FrmAdminStatsMoniteurEtVehicule extends javax.swing.JFrame {
         tblUnVehiculeSollicite = new javax.swing.JTable();
         lblUnVehiculeSollicité = new javax.swing.JLabel();
 
+        setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jScrollPane1.setViewportView(tblUnMoniteurSollicite);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 95, 558, 353));
 
         lblUnMoniteurSollicité.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         lblUnMoniteurSollicité.setText("Le moniteur le plus sollicité");
+        getContentPane().add(lblUnMoniteurSollicité, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 70, -1, -1));
 
         lblADminStatMoniteurVehicule.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblADminStatMoniteurVehicule.setText("Statistiques des moniteurs et véhicules les plus sollicités ");
+        getContentPane().add(lblADminStatMoniteurVehicule, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 10, 1061, 30));
 
         lblLesMoniteursSollicites.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        lblLesMoniteursSollicites.setText("Classement des véhicules les plus sollcités");
+        lblLesMoniteursSollicites.setText("Classement des moniteurs les plus sollcités");
+        getContentPane().add(lblLesMoniteursSollicites, new org.netbeans.lib.awtextra.AbsoluteConstraints(772, 70, -1, -1));
 
         jScrollPane2.setViewportView(tblLesMoniteursSollicites);
 
-        btnAdminGraphiqueLesVehicules.setText("Voir le Graphique des moniteurs");
-        btnAdminGraphiqueLesVehicules.addMouseListener(new java.awt.event.MouseAdapter() {
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(772, 95, 621, 353));
+
+        btnAdminGraphiqueLesMoniteurs.setText("Voir le Graphique des moniteurs");
+        btnAdminGraphiqueLesMoniteurs.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAdminGraphiqueLesVehiculesMouseClicked(evt);
+                btnAdminGraphiqueLesMoniteursMouseClicked(evt);
             }
         });
+        getContentPane().add(btnAdminGraphiqueLesMoniteurs, new org.netbeans.lib.awtextra.AbsoluteConstraints(772, 454, 621, -1));
 
         lblLesVehiculesSollicites.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         lblLesVehiculesSollicites.setText("Les véhicules les plus sollicités");
+        getContentPane().add(lblLesVehiculesSollicites, new org.netbeans.lib.awtextra.AbsoluteConstraints(774, 495, -1, 16));
 
         jScrollPane4.setViewportView(tblLesVehiculesSollicites);
+
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(772, 517, 627, -1));
 
         btnAdminGraphiqueVehicule.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         btnAdminGraphiqueVehicule.setText("Voir le graphique des véhicules");
@@ -74,90 +88,30 @@ public class FrmAdminStatsMoniteurEtVehicule extends javax.swing.JFrame {
                 btnAdminGraphiqueVehiculeMouseClicked(evt);
             }
         });
+        getContentPane().add(btnAdminGraphiqueVehicule, new org.netbeans.lib.awtextra.AbsoluteConstraints(771, 930, 630, -1));
 
         jScrollPane3.setViewportView(tblUnVehiculeSollicite);
 
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 517, 558, -1));
+
         lblUnVehiculeSollicité.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         lblUnVehiculeSollicité.setText("Le véhicule le plus sollicités");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(385, 385, 385)
-                .addComponent(lblADminStatMoniteurVehicule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblUnVehiculeSollicité)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblLesVehiculesSollicites)
-                        .addGap(456, 456, 456))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane3)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 558, Short.MAX_VALUE)
-                            .addComponent(lblUnMoniteurSollicité, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblLesMoniteursSollicites)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnAdminGraphiqueLesVehicules, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(59, 59, 59))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnAdminGraphiqueVehicule, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(53, 53, 53))))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(lblADminStatMoniteurVehicule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblLesMoniteursSollicites)
-                    .addComponent(lblUnMoniteurSollicité))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblUnVehiculeSollicité)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(btnAdminGraphiqueLesVehicules)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblLesVehiculesSollicites, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane3)
-                    .addComponent(jScrollPane4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAdminGraphiqueVehicule)
-                .addGap(10, 10, 10))
-        );
+        getContentPane().add(lblUnVehiculeSollicité, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 492, -1, -1));
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnAdminGraphiqueLesVehiculesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminGraphiqueLesVehiculesMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAdminGraphiqueLesVehiculesMouseClicked
 
     private void btnAdminGraphiqueVehiculeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminGraphiqueVehiculeMouseClicked
         // TODO add your handling code here:
+        FrmAdminGraphiqueVehicule frm= new FrmAdminGraphiqueVehicule();
+        frm.setVisible(true);
     }//GEN-LAST:event_btnAdminGraphiqueVehiculeMouseClicked
+
+    private void btnAdminGraphiqueLesMoniteursMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminGraphiqueLesMoniteursMouseClicked
+
+        FrmAdminGraphiqueMoniteur frm = new FrmAdminGraphiqueMoniteur();
+        frm.setVisible(true);
+    }//GEN-LAST:event_btnAdminGraphiqueLesMoniteursMouseClicked
 
     /**
      * @param args the command line arguments
@@ -195,7 +149,7 @@ public class FrmAdminStatsMoniteurEtVehicule extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdminGraphiqueLesVehicules;
+    private javax.swing.JButton btnAdminGraphiqueLesMoniteurs;
     private javax.swing.JButton btnAdminGraphiqueVehicule;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

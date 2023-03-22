@@ -35,6 +35,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         btnMoniteur = new javax.swing.JButton();
         btnEleve = new javax.swing.JButton();
         btnAdministrateur = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -69,6 +70,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("jButton1");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -85,10 +93,15 @@ public class FrmPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAdministrateur)
-                    .addComponent(btnMoniteur, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEleve, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(136, 136, 136))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAdministrateur)
+                            .addComponent(btnMoniteur, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEleve, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(136, 136, 136))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(51, 51, 51))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,7 +116,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addComponent(btnMoniteur)
                 .addGap(18, 18, 18)
                 .addComponent(btnAdministrateur)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(21, 21, 21))
         );
 
         pack();
@@ -130,6 +145,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
          FrmAdministrateurConnexion frm = new FrmAdministrateurConnexion();
          frm.setVisible(true);
     }//GEN-LAST:event_btnAdministrateurMouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        FrmMoniteurGraphique frm = new FrmMoniteurGraphique();
+        frm.setVisible(true);
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -173,6 +194,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnAdministrateur;
     private javax.swing.JButton btnEleve;
     private javax.swing.JButton btnMoniteur;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblChoixDeConnexion;
     private javax.swing.JLabel lblTitre;
     // End of variables declaration//GEN-END:variables

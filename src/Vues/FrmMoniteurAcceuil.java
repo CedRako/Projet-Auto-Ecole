@@ -41,6 +41,7 @@ public class FrmMoniteurAcceuil extends javax.swing.JFrame {
         txtMoniteurConnecte = new javax.swing.JTextPane();
         btnMoniteurModifierInformation = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnGraphCA = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -71,7 +72,13 @@ public class FrmMoniteurAcceuil extends javax.swing.JFrame {
                 btnMoniteurCAetLeconMouseClicked(evt);
             }
         });
+        btnMoniteurCAetLecon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMoniteurCAetLeconActionPerformed(evt);
+            }
+        });
 
+        txtMoniteurConnecte.setEditable(false);
         txtMoniteurNomConnexion.setViewportView(txtMoniteurConnecte);
 
         btnMoniteurModifierInformation.setText("Modifier mes informations personnelles");
@@ -85,31 +92,44 @@ public class FrmMoniteurAcceuil extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ESPACE MONITEUR");
 
+        btnGraphCA.setText("Voir l'évolution de mon chiffre d'affaire");
+        btnGraphCA.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnGraphCAMouseClicked(evt);
+            }
+        });
+        btnGraphCA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGraphCAActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnMoniteurModifierInformation)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnMoniteurLicence, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnMoniteurplanning, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnMoniteurCAetLecon, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(98, 98, 98))))
+                .addComponent(btnMoniteurModifierInformation)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
                         .addComponent(lblMoniteurNomConnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtMoniteurNomConnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtMoniteurNomConnexion, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnMoniteurLicence, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnMoniteurplanning, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnMoniteurCAetLecon, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnGraphCA)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -127,7 +147,9 @@ public class FrmMoniteurAcceuil extends javax.swing.JFrame {
                 .addComponent(btnMoniteurLicence)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnMoniteurCAetLecon)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(btnGraphCA)
+                .addGap(18, 18, 18)
                 .addComponent(btnMoniteurModifierInformation)
                 .addContainerGap())
         );
@@ -162,6 +184,20 @@ public class FrmMoniteurAcceuil extends javax.swing.JFrame {
         // TODO add your handling code here:
         txtMoniteurConnecte.setText(unMoniteur.getNom() + " " + unMoniteur.getPrenom());
     }//GEN-LAST:event_formWindowOpened
+
+    private void btnGraphCAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGraphCAMouseClicked
+        // TODO add your handling code here:
+        FrmMoniteurGraphique frm = new FrmMoniteurGraphique(unMoniteur);
+        frm.setVisible(true);
+    }//GEN-LAST:event_btnGraphCAMouseClicked
+
+    private void btnGraphCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGraphCAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGraphCAActionPerformed
+
+    private void btnMoniteurCAetLeconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoniteurCAetLeconActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMoniteurCAetLeconActionPerformed
 
     /**
      * @param args the command line arguments
@@ -199,6 +235,7 @@ public class FrmMoniteurAcceuil extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGraphCA;
     private javax.swing.JButton btnMoniteurCAetLecon;
     private javax.swing.JButton btnMoniteurLicence;
     private javax.swing.JButton btnMoniteurModifierInformation;

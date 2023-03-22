@@ -10,7 +10,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.sql.Date;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -87,9 +90,10 @@ public class CtrlLecon {
     public float MontantTotalPermisARegler(int numEleve, int codeCate){
         float montantT=0;
         try {
-            ps=maCnx.prepareStatement("SELECT  (SELECT Count(CodeLecon) FROM lecon join vehicule on lecon.Immatriculation= vehicule.Immatriculation where codeEleve = ? and vehicule.codeCategorie= ? and reglee=0) * prix as MontantTotal\n" +
-                    "from categorie\n" +
-                    "where CodeCategorie = ?;");
+            ps=maCnx.prepareStatement("""
+                                      SELECT  (SELECT Count(CodeLecon) FROM lecon join vehicule on lecon.Immatriculation= vehicule.Immatriculation where codeEleve = ? and vehicule.codeCategorie= ? and reglee=0) * prix as MontantTotal
+                                      from categorie
+                                      where CodeCategorie = ?;""");
             ps.setInt(1, numEleve);
             ps.setInt(2, codeCate);
             ps.setInt(3,codeCate);
@@ -162,6 +166,46 @@ public class CtrlLecon {
             Logger.getLogger(CtrlLecon.class.getName()).log(Level.SEVERE, null, ex);
         }
         return mesLecons;
+    }   
+    public ArrayList<Lecon> getAllLecons() {
+        ArrayList<Lecon> lesLecons = new ArrayList<>();
+        
+        try {
+            ps= maCnx.prepareStatement("SELECT CodeLecon, Date, Heure, CodeMoniteur, CodeEleve, Immatriculation, Reglee FROM lecon;");
+            rs= ps.executeQuery();
+            while(rs.next()){
+                Lecon lecon= new Lecon(rs.getInt(1),rs.getDate(2),rs.getString(3),rs.getInt(4),rs.getInt (5),rs.getString(6),rs.getInt(7));
+                lesLecons.add(lecon);
+            }
+            ps.close();
+            rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(CtrlLecon.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lesLecons;
+    }
+    
+    public Double getChiffreAffaires(Date dateDu, Date dateAu) {
+        Double chiffreAffaires = 0.0;
+        
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String dateDuFormatString = sdf.format(dateDu);
+            String dateAuFormatString = sdf.format(dateAu);
+            
+            ps = maCnx.prepareStatement("SELECT SUM(categorie.Prix) AS chiffreAffaires FROM lecon JOIN vehicule ON vehicule.Immatriculation = lecon.Immatriculation JOIN categorie ON categorie.CodeCategorie = vehicule.CodeCategorie WHERE lecon.Date >= ? AND lecon.Date <= ?;");
+            ps.setString(1, dateDuFormatSting);
+            ps.setString(2, dateAuFormatString);
+            rs = ps.executeQuery();
+            rs.next();
+            chiffreAffaires = rs.getDouble(1);
+            ps.close();
+            rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(CtrlLecon.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return chiffreAffaires;
     }
       public Lecon verifInscripLecon(int numMoniteur,int codeEleve, String dateLecon,int codeCategorie ){ //Verifie si l'élève n'as pas déjà réservé une leçon le même jour avec le même moniteur pour la même catégorie de permis
           Lecon uneLecon = null;
