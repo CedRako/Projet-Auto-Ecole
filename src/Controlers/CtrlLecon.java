@@ -10,7 +10,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -87,9 +89,10 @@ public class CtrlLecon {
     public float MontantTotalPermisARegler(int numEleve, int codeCate){
         float montantT=0;
         try {
-            ps=maCnx.prepareStatement("SELECT  (SELECT Count(CodeLecon) FROM lecon join vehicule on lecon.Immatriculation= vehicule.Immatriculation where codeEleve = ? and vehicule.codeCategorie= ? and reglee=0) * prix as MontantTotal\n" +
-                    "from categorie\n" +
-                    "where CodeCategorie = ?;");
+            ps=maCnx.prepareStatement("""
+                                      SELECT  (SELECT Count(CodeLecon) FROM lecon join vehicule on lecon.Immatriculation= vehicule.Immatriculation where codeEleve = ? and vehicule.codeCategorie= ? and reglee=0) * prix as MontantTotal
+                                      from categorie
+                                      where CodeCategorie = ?;""");
             ps.setInt(1, numEleve);
             ps.setInt(2, codeCate);
             ps.setInt(3,codeCate);
@@ -108,10 +111,11 @@ public class CtrlLecon {
     public int nombreDeLeconParEleveEtPermisFini(int numEleve,int codeCate){
         int nbrLecon=0;
         try {
-            ps=maCnx.prepareCall("SELECT COUNT(CodeLecon)\n" +
-                    "FROM lecon\n" +
-                    "join vehicule on lecon.Immatriculation=vehicule.Immatriculation\n" +
-                    "WHERE vehicule.codeCategorie=? and CodeEleve=? and Date <CURDATE();");
+            ps=maCnx.prepareCall("""
+                                 SELECT COUNT(CodeLecon)
+                                 FROM lecon
+                                 join vehicule on lecon.Immatriculation=vehicule.Immatriculation
+                                 WHERE vehicule.codeCategorie=? and CodeEleve=? and Date <CURDATE();""");
             ps.setInt(1, codeCate);
             ps.setInt(2,numEleve);
             rs=ps.executeQuery();
@@ -127,10 +131,11 @@ public class CtrlLecon {
     public int nombreDeLeconParEleveEtPermisAfaire(int numEleve,int codeCate){
         int nbrLecon=0;
         try {
-            ps=maCnx.prepareCall("SELECT COUNT(CodeLecon)\n" +
-                    "FROM lecon\n" +
-                    "join vehicule on lecon.Immatriculation=vehicule.Immatriculation\n" +
-                    "WHERE vehicule.codeCategorie=? and CodeEleve=? and Date > CURDATE();");
+            ps=maCnx.prepareCall("""
+                                 SELECT COUNT(CodeLecon)
+                                 FROM lecon
+                                 join vehicule on lecon.Immatriculation=vehicule.Immatriculation
+                                 WHERE vehicule.codeCategorie=? and CodeEleve=? and Date > CURDATE();""");
             ps.setInt(1, codeCate);
             ps.setInt(2,numEleve);
             rs=ps.executeQuery();
@@ -146,10 +151,11 @@ public class CtrlLecon {
         public ArrayList<Lecon> GetLeconByIdMoniteur(int numMoniteur){
          ArrayList<Lecon> mesLecons =  new ArrayList<>();
         try {
-            ps= maCnx.prepareStatement("SELECT codeLecon,Date,heure,CodeMoniteur,CodeEleve,Immatriculation,reglee\n" +
-                    "FROM lecon\n" +
-                    "Where CodeMoniteur=?\n"+
-                     "Order by DATE Desc");
+            ps= maCnx.prepareStatement("""
+                                       SELECT codeLecon,Date,heure,CodeMoniteur,CodeEleve,Immatriculation,reglee
+                                       FROM lecon
+                                       Where CodeMoniteur=?
+                                       Order by DATE Desc""");
             ps.setInt(1, numMoniteur);
             rs= ps.executeQuery();
             while(rs.next()){
@@ -180,5 +186,28 @@ public class CtrlLecon {
             Logger.getLogger(CtrlLecon.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lesLecons;
+    }
+    
+    public Double getChiffreAffaires(Date dateDu, Date dateAu) {
+        Double chiffreAffaires = 0.0;
+        
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String dateDuFormatString = sdf.format(dateDu);
+            String dateAuFormatString = sdf.format(dateAu);
+            
+            ps = maCnx.prepareStatement("SELECT SUM(categorie.Prix) AS chiffreAffaires FROM lecon JOIN vehicule ON vehicule.Immatriculation = lecon.Immatriculation JOIN categorie ON categorie.CodeCategorie = vehicule.CodeCategorie WHERE lecon.Date >= ? AND lecon.Date <= ?;");
+            ps.setString(1, dateDuFormatString);
+            ps.setString(2, dateAuFormatString);
+            rs = ps.executeQuery();
+            rs.next();
+            chiffreAffaires = rs.getDouble(1);
+            ps.close();
+            rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(CtrlLecon.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return chiffreAffaires;
     }
 }
