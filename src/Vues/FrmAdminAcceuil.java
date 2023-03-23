@@ -279,6 +279,7 @@ public class FrmAdminAcceuil extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         txtAdminConnecte.setText(administrateur.getNom() + " " + administrateur.getPrenom());
+        txtAdminConnecte.setEditable(false);
     }//GEN-LAST:event_formWindowOpened
 
     private void btnAdminPlanningEleveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminPlanningEleveMouseClicked

@@ -183,6 +183,7 @@ public class FrmMoniteurAcceuil extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         txtMoniteurConnecte.setText(unMoniteur.getNom() + " " + unMoniteur.getPrenom());
+        txtMoniteurConnecte.setEditable(false);
     }//GEN-LAST:event_formWindowOpened
 
     private void btnGraphCAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGraphCAMouseClicked

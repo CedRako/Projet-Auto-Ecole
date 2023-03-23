@@ -179,6 +179,7 @@ public class FrmEleveAcceuil extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         txtEleveConnecte.setText(eleve.getNom() + " " + eleve.getPrenom());
+        txtEleveConnecte.setEditable(false);
     }//GEN-LAST:event_formWindowOpened
 
     private void btnEleveModifierInformationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEleveModifierInformationMouseClicked
