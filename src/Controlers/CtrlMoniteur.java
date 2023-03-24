@@ -234,4 +234,46 @@ public class CtrlMoniteur {
         }
         return lastCodeMoniteur;
     }
+    public Moniteur getMoniteurLePlusSolicité(){
+       Moniteur leMoniteur = null;
+       try{
+           ps = cnx.prepareStatement("SELECT moniteur.CodeMoniteur,COUNT(CodeLecon) as nbrLecons,nom,prenom,Sexe,DateDeNaissance,Adresse,CodePostal,ville,telephone\n" +
+                                     "from moniteur \n" +
+                                     "join lecon on moniteur.CodeMoniteur= lecon.CodeMoniteur\n" +
+                                     "GROUP by moniteur.Nom\n" +
+                                     "order by nbrLecons DESC\n" +
+                                     "limit 1;");
+           rs = ps.executeQuery();
+           if(rs.next()){
+              leMoniteur = new  Moniteur(rs.getInt(1), rs.getInt(2), rs.getString(3),rs.getString(4),rs.getInt(5),rs.getDate(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10));
+               
+           }
+           ps.close();
+           rs.close();
+           } catch (SQLException ex) {
+            Logger.getLogger(CtrlMoniteur.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       return leMoniteur;
+   }
+    public ArrayList<Moniteur> getLesMoniteursSolicités(){
+       ArrayList<Moniteur> lesMoniteurs = new ArrayList<>();
+       try{
+           ps = cnx.prepareStatement("SELECT moniteur.CodeMoniteur,COUNT(CodeLecon) as nbrLecons,nom,prenom,Sexe,DateDeNaissance,Adresse,CodePostal,ville,telephone\n" +
+                                     "from moniteur \n" +
+                                     "join lecon on moniteur.CodeMoniteur= lecon.CodeMoniteur\n" +
+                                     "GROUP by moniteur.Nom\n" +
+                                     "order by nbrLecons DESC\n");
+           rs = ps.executeQuery();
+           while(rs.next()){
+               Moniteur leMoniteur = new  Moniteur(rs.getInt(1), rs.getInt(2), rs.getString(3),rs.getString(4),rs.getInt(5),rs.getDate(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10));
+               lesMoniteurs.add(leMoniteur);
+           }
+           ps.close();
+           rs.close();
+           } catch (SQLException ex) {
+            Logger.getLogger(CtrlMoniteur.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       return lesMoniteurs;
+   }
+    
 }
