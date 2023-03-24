@@ -109,4 +109,48 @@ public class CtrlVehicule {
         }
         
     }
+    public Vehicule getLeVehiculeLePlusSollicite(){
+        Vehicule unVehicule = null;
+        try{
+           ps = Macnx.prepareStatement("Select lecon.Immatriculation,Count(CodeLecon) as nbrLecons,Marque,Modele,Annee,vehicule.CodeCategorie \n" +
+                                       "from vehicule\n" +
+                                       "Join lecon on vehicule.Immatriculation = lecon.Immatriculation\n" +
+                                       "join categorie on vehicule.CodeCategorie = categorie.CodeCategorie\n" +
+                                       "group by Immatriculation\n" +
+                                       "order by nbrLecons DESC\n" +
+                                       "limit 1;");
+        rs = ps.executeQuery();
+        if(rs.next()){
+            unVehicule= new Vehicule(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(5),rs.getInt(6));
+        }
+        ps.close();
+        rs.close();
+        
+          } catch (SQLException ex) {
+            Logger.getLogger(CtrlVehicule.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return unVehicule;
+    }
+     public ArrayList<Vehicule> getLesVehiculesLesPlusSollicites(){
+        ArrayList<Vehicule> LesVehicules = new ArrayList<>();
+        try{
+           ps = Macnx.prepareStatement("Select lecon.Immatriculation,Count(CodeLecon) as nbrLecons,Marque,Modele,Annee,vehicule.CodeCategorie \n" +
+                                       "from vehicule\n" +
+                                       "Join lecon on vehicule.Immatriculation = lecon.Immatriculation\n" +
+                                       "join categorie on vehicule.CodeCategorie = categorie.CodeCategorie\n" +
+                                       "group by Immatriculation\n" +
+                                       "order by nbrLecons DESC;");
+        rs = ps.executeQuery();
+        if(rs.next()){
+            Vehicule unVehicule= new Vehicule(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(5),rs.getInt(6));
+            LesVehicules.add(unVehicule);
+        }
+        ps.close();
+        rs.close();
+        
+          } catch (SQLException ex) {
+            Logger.getLogger(CtrlVehicule.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return LesVehicules;
+    }
 }

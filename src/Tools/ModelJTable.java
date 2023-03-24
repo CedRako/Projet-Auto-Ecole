@@ -10,6 +10,7 @@ import Controlers.CtrlMoniteur;
 import Entities.Eleve;
 import Entities.Lecon;
 import Entities.Moniteur;
+import Entities.Vehicule;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
@@ -122,7 +123,7 @@ public class ModelJTable extends AbstractTableModel
         }
         fireTableDataChanged();
      }
-       public void loadDatasMoniteurLePlusSolicites(Moniteur leMoniteurSolicite){
+       public void loadDatasMoniteurLePlusSollicite(Moniteur leMoniteurSolicite){
         colonnes = new String[]{"CodeMoniteur","Nombre de Leçons","nom","prenom","Sexe","DateDeNaissance","Adresse","CodePostal","Ville","Telephone"};
         lignes = new Object [1][10];
         int i =0;
@@ -139,11 +140,11 @@ public class ModelJTable extends AbstractTableModel
             i++;
         fireTableDataChanged();
      }
-      public void loadDatasLesMoniteursLePlusSolicites(ArrayList<Moniteur> lesMoniteursSolicites){
+      public void loadDatasLesMoniteursLePlusSollicites(ArrayList<Moniteur> lesMoniteursSollicites){
         colonnes = new String[]{"CodeMoniteur","Nombre de Leçons","nom","prenom","Sexe","DateDeNaissance","Adresse","CodePostal","Ville","Telephone"};
-        lignes = new Object [lesMoniteursSolicites.size()][10];
+        lignes = new Object [lesMoniteursSollicites.size()][10];
         int i =0;
-        for(Moniteur lesMoniteurs : lesMoniteursSolicites){
+        for(Moniteur lesMoniteurs : lesMoniteursSollicites){
             lignes[i][0]= lesMoniteurs.getCodeMoniteur();
             lignes[i][1]= lesMoniteurs.getNbrLecons();
             lignes[i][2]= lesMoniteurs.getNom();
@@ -158,5 +159,30 @@ public class ModelJTable extends AbstractTableModel
         }
         fireTableDataChanged();
      }
-
+      public void loadDatasVehiculeLePlusSollicite(Vehicule vehiculeLePlusSollicite){
+          colonnes = new String[]{"Immatriculation","Nombre de Leçons","Marque","Modele","Anne","Categorie"};
+          lignes = new Object [1][10];
+          int i =0;
+            lignes[i][0]= vehiculeLePlusSollicite.getImmatriculation();
+            lignes[i][1]= vehiculeLePlusSollicite.getnbrLecons();
+            lignes[i][2]= vehiculeLePlusSollicite.getMarque();
+            lignes[i][3]= vehiculeLePlusSollicite.getModele();
+            lignes[i][4]= vehiculeLePlusSollicite.getAnnee();
+            lignes[i][5]= vehiculeLePlusSollicite.getCodeCategorie();
+      }
+         public void loadDatasLesVehiculeLesPlusSollicites(ArrayList<Vehicule> lesVehiculesSolicites){
+          colonnes = new String[]{"Immatriculation","Nombre de Leçons","Marque","Modele","Anne","Categorie"};
+          lignes = new Object [lesVehiculesSolicites.size()][6];
+          int i =0;
+          for(Vehicule leVehiculeLePlusSollicite : lesVehiculesSolicites){
+            lignes[i][0]= leVehiculeLePlusSollicite.getImmatriculation();
+            lignes[i][1]= leVehiculeLePlusSollicite.getnbrLecons();
+            lignes[i][2]= leVehiculeLePlusSollicite.getMarque();
+            lignes[i][3]= leVehiculeLePlusSollicite.getModele();
+            lignes[i][4]= leVehiculeLePlusSollicite.getAnnee();
+            lignes[i][5]= leVehiculeLePlusSollicite.getCodeCategorie();
+            i++;
+      }
+          fireTableDataChanged();
+}
 }

@@ -5,6 +5,7 @@
 package Vues;
 
 import Controlers.CtrlMoniteur;
+import Controlers.CtrlVehicule;
 import Tools.ModelJTable;
 
 /**
@@ -13,8 +14,9 @@ import Tools.ModelJTable;
  */
 public class FrmAdminStatsMoniteurEtVehicule extends javax.swing.JFrame {
 
-    ModelJTable mdl,mdl2;
+    ModelJTable mdl,mdl2,mdl3,mdl4;
     CtrlMoniteur ctrlMoniteur;
+    CtrlVehicule ctrlVehicule;
     /**
      * Creates new form FrmAdminStatsMoniteurEtVehicule
      */
@@ -128,14 +130,24 @@ public class FrmAdminStatsMoniteurEtVehicule extends javax.swing.JFrame {
         // TODO add your handling code here:
         mdl = new ModelJTable();
         mdl2 = new ModelJTable();
+        mdl3 = new ModelJTable();
+        mdl4 = new ModelJTable();
         ctrlMoniteur = new CtrlMoniteur();
+        ctrlVehicule = new CtrlVehicule();
         
-        mdl.loadDatasMoniteurLePlusSolicites(ctrlMoniteur.getMoniteurLePlusSolicité());
+        // Moniteur
+        mdl.loadDatasMoniteurLePlusSollicite(ctrlMoniteur.getMoniteurLePlusSolicité());
         tblUnMoniteurSollicite.setModel(mdl);
         
-        mdl2.loadDatasLesMoniteursLePlusSolicites(ctrlMoniteur.getLesMoniteursSolicités());
+        mdl2.loadDatasLesMoniteursLePlusSollicites(ctrlMoniteur.getLesMoniteursSolicités());
         tblLesMoniteursSollicites.setModel(mdl2);
         
+        //Vehicule
+        mdl3.loadDatasVehiculeLePlusSollicite(ctrlVehicule.getLeVehiculeLePlusSollicite());
+        tblUnVehiculeSollicite.setModel(mdl3);
+        
+        mdl4.loadDatasLesVehiculeLesPlusSollicites(ctrlVehicule.getLesVehiculesLesPlusSollicites());
+        tblLesVehiculesSollicites.setModel(mdl4);
     }//GEN-LAST:event_formWindowOpened
 
     /**
