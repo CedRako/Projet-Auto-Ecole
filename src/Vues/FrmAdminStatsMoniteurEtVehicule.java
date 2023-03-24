@@ -4,12 +4,17 @@
  */
 package Vues;
 
+import Controlers.CtrlMoniteur;
+import Tools.ModelJTable;
+
 /**
  *
  * @author Rakotomalala Cédric
  */
 public class FrmAdminStatsMoniteurEtVehicule extends javax.swing.JFrame {
 
+    ModelJTable mdl,mdl2;
+    CtrlMoniteur ctrlMoniteur;
     /**
      * Creates new form FrmAdminStatsMoniteurEtVehicule
      */
@@ -43,11 +48,16 @@ public class FrmAdminStatsMoniteurEtVehicule extends javax.swing.JFrame {
         lblUnVehiculeSollicité = new javax.swing.JLabel();
 
         setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jScrollPane1.setViewportView(tblUnMoniteurSollicite);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 95, 558, 353));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 95, 558, 130));
 
         lblUnMoniteurSollicité.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         lblUnMoniteurSollicité.setText("Le moniteur le plus sollicité");
@@ -63,7 +73,7 @@ public class FrmAdminStatsMoniteurEtVehicule extends javax.swing.JFrame {
 
         jScrollPane2.setViewportView(tblLesMoniteursSollicites);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(772, 95, 621, 353));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(772, 95, 621, 300));
 
         btnAdminGraphiqueLesMoniteurs.setText("Voir le Graphique des moniteurs");
         btnAdminGraphiqueLesMoniteurs.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -71,15 +81,15 @@ public class FrmAdminStatsMoniteurEtVehicule extends javax.swing.JFrame {
                 btnAdminGraphiqueLesMoniteursMouseClicked(evt);
             }
         });
-        getContentPane().add(btnAdminGraphiqueLesMoniteurs, new org.netbeans.lib.awtextra.AbsoluteConstraints(772, 454, 621, -1));
+        getContentPane().add(btnAdminGraphiqueLesMoniteurs, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 430, 621, -1));
 
         lblLesVehiculesSollicites.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         lblLesVehiculesSollicites.setText("Les véhicules les plus sollicités");
-        getContentPane().add(lblLesVehiculesSollicites, new org.netbeans.lib.awtextra.AbsoluteConstraints(774, 495, -1, 16));
+        getContentPane().add(lblLesVehiculesSollicites, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 480, -1, 16));
 
         jScrollPane4.setViewportView(tblLesVehiculesSollicites);
 
-        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(772, 517, 627, -1));
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 510, 627, -1));
 
         btnAdminGraphiqueVehicule.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         btnAdminGraphiqueVehicule.setText("Voir le graphique des véhicules");
@@ -88,17 +98,18 @@ public class FrmAdminStatsMoniteurEtVehicule extends javax.swing.JFrame {
                 btnAdminGraphiqueVehiculeMouseClicked(evt);
             }
         });
-        getContentPane().add(btnAdminGraphiqueVehicule, new org.netbeans.lib.awtextra.AbsoluteConstraints(771, 930, 630, -1));
+        getContentPane().add(btnAdminGraphiqueVehicule, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 920, 630, -1));
 
         jScrollPane3.setViewportView(tblUnVehiculeSollicite);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 517, 558, -1));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 510, 558, -1));
 
         lblUnVehiculeSollicité.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         lblUnVehiculeSollicité.setText("Le véhicule le plus sollicités");
-        getContentPane().add(lblUnVehiculeSollicité, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 492, -1, -1));
+        getContentPane().add(lblUnVehiculeSollicité, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, -1, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAdminGraphiqueVehiculeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminGraphiqueVehiculeMouseClicked
@@ -112,6 +123,20 @@ public class FrmAdminStatsMoniteurEtVehicule extends javax.swing.JFrame {
         FrmAdminGraphiqueMoniteur frm = new FrmAdminGraphiqueMoniteur();
         frm.setVisible(true);
     }//GEN-LAST:event_btnAdminGraphiqueLesMoniteursMouseClicked
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        mdl = new ModelJTable();
+        mdl2 = new ModelJTable();
+        ctrlMoniteur = new CtrlMoniteur();
+        
+        mdl.loadDatasMoniteurLePlusSolicites(ctrlMoniteur.getMoniteurLePlusSolicité());
+        tblUnMoniteurSollicite.setModel(mdl);
+        
+        mdl2.loadDatasLesMoniteursLePlusSolicites(ctrlMoniteur.getLesMoniteursSolicités());
+        tblLesMoniteursSollicites.setModel(mdl2);
+        
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
