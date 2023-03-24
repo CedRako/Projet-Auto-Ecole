@@ -66,7 +66,7 @@ public class FrmMoniteurAcceuil extends javax.swing.JFrame {
             }
         });
 
-        btnMoniteurCAetLecon.setText("Voir son chiffre d'affaire");
+        btnMoniteurCAetLecon.setText("Voir son chiffre d'affaires");
         btnMoniteurCAetLecon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnMoniteurCAetLeconMouseClicked(evt);
@@ -92,7 +92,7 @@ public class FrmMoniteurAcceuil extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ESPACE MONITEUR");
 
-        btnGraphCA.setText("Voir l'évolution de mon chiffre d'affaire");
+        btnGraphCA.setText("Voir l'évolution de mon chiffre d'affaires");
         btnGraphCA.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnGraphCAMouseClicked(evt);

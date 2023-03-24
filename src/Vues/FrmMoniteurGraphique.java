@@ -8,6 +8,7 @@ import Controlers.CtrlEleve;
 import Controlers.CtrlGraphique;
 import Entities.Eleve;
 import Entities.Moniteur;
+import java.util.Map;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.ChartPanel;
@@ -86,15 +87,17 @@ public class FrmMoniteurGraphique extends javax.swing.JFrame {
         donnees = new DefaultCategoryDataset();
         double moniteurCA;
         String mois;
-        for (String valeur : ctrlGraphique.GetDatasGraphique2(moniteur.getCodeMoniteur()).keySet())
+        for(Map.Entry valeur : ctrlGraphique.GetDatasGraphiqueMoniteurEvolutionCA(moniteur.getCodeMoniteur()).entrySet())
+        //for (String valeur : ctrlGraphique.GetDatasGraphique2(moniteur.getCodeMoniteur()).keySet())
         {
-            moniteurCA = ctrlGraphique.GetDatasGraphique2(moniteur.getCodeMoniteur()).get(valeur);
-            mois = valeur;
+            //moniteurCA = ctrlGraphique.GetDatasGraphique2(moniteur.getCodeMoniteur()).get(valeur);
+            moniteurCA = Double.parseDouble(valeur.getValue().toString());
+            mois = valeur.getKey().toString();
             donnees.setValue(moniteurCA,"",mois);
         }
         JFreeChart chart1 = ChartFactory.createLineChart(
-                "Evolution du Chiffre d'affaire",
-                "Chiffre d'affaire en euros",
+                "Evolution du Chiffre d'affaires",
+                "Chiffre d'affaires en euros",
                 "Mois",
                 donnees,
                 PlotOrientation.VERTICAL,false, true, false);

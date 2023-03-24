@@ -27,20 +27,20 @@ public class CtrlGraphique {
         cnx = ConnexionBDD.getCnx();
     }
     
-    public HashMap<String, Double> GetDatasGraphique2(int numMoni)
+    public HashMap<Integer, Double> GetDatasGraphiqueMoniteurEvolutionCA(int numMoni)
     {
-        HashMap<String, Double> datas = new HashMap();
+        HashMap<Integer, Double> datas = new HashMap();
         try {
-            ps = cnx.prepareStatement("SELECT YEAR(Date) AS mois, SUM(categorie.prix) AS moniteurCA \n" +
+            ps = cnx.prepareStatement("SELECT YEAR(Date) AS anneebis, SUM(categorie.prix) AS moniteurCA \n" +
                                       "FROM lecon \n" +
                                       "JOIN vehicule ON vehicule.Immatriculation = lecon.Immatriculation\n" +
                                       "JOIN categorie ON categorie.CodeCategorie = vehicule.CodeCategorie\n" +
-                                      "WHERE CodeMoniteur = ? GROUP BY mois");
+                                      "WHERE CodeMoniteur = ? GROUP BY anneebis");
             ps.setInt(1, numMoni);
             rs = ps.executeQuery();
             while(rs.next())
             {
-                datas.put(rs.getString("mois"), rs.getDouble("moniteurCA"));
+                datas.put(rs.getInt("anneebis"), rs.getDouble("moniteurCA"));
             }
             ps.close();
             rs.close();

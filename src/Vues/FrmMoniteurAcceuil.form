@@ -107,7 +107,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnMoniteurCAetLecon">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Voir son chiffre d&apos;affaire"/>
+        <Property name="text" type="java.lang.String" value="Voir son chiffre d&apos;affaires"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnMoniteurCAetLeconMouseClicked"/>
@@ -147,7 +147,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnGraphCA">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Voir l&apos;&#xe9;volution de mon chiffre d&apos;affaire"/>
+        <Property name="text" type="java.lang.String" value="Voir l&apos;&#xe9;volution de mon chiffre d&apos;affaires"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnGraphCAMouseClicked"/>
