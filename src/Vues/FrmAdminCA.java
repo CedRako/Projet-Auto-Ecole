@@ -38,7 +38,6 @@ public class FrmAdminCA extends javax.swing.JFrame {
         btnAdminChiffreDAffaires = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtChiffreDAFFAIRE = new javax.swing.JTextField();
-        btnAdminGrapheChiffreDAFffaire = new javax.swing.JButton();
 
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -62,8 +61,6 @@ public class FrmAdminCA extends javax.swing.JFrame {
 
         jLabel1.setText("Votre chiffre d'affaire durant cette période : ");
 
-        btnAdminGrapheChiffreDAFffaire.setText("Voir le graphique ");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -72,7 +69,6 @@ public class FrmAdminCA extends javax.swing.JFrame {
                 .addContainerGap(49, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnAdminGrapheChiffreDAFffaire, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -108,9 +104,7 @@ public class FrmAdminCA extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtChiffreDAFFAIRE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addComponent(btnAdminGrapheChiffreDAFffaire)
-                .addGap(23, 23, 23))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         pack();
@@ -171,7 +165,6 @@ public class FrmAdminCA extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdminChiffreDAffaires;
-    private javax.swing.JButton btnAdminGrapheChiffreDAFffaire;
     private com.toedter.calendar.JDateChooser dcAdminChiffreDAffaire1;
     private com.toedter.calendar.JDateChooser dcAdminChiffreDAffaire2;
     private javax.swing.JLabel jLabel1;

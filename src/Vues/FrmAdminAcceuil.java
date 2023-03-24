@@ -320,7 +320,7 @@ public class FrmAdminAcceuil extends javax.swing.JFrame {
 
     private void btnAdminStatistiqueMoniteurMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminStatistiqueMoniteurMouseClicked
         // TODO add your handling code here:
-        FrmAdminStatsMoniteurEtVehicule frm = new FrmAdminStatsMoniteurEtVehicule();
+        FrmAdminStatistiqueMoniteurEtVehicule frm = new FrmAdminStatistiqueMoniteurEtVehicule();
         frm.setVisible(true);
     }//GEN-LAST:event_btnAdminStatistiqueMoniteurMouseClicked
 
