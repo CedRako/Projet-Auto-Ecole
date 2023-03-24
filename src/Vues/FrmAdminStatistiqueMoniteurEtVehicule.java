@@ -79,10 +79,10 @@ public class FrmAdminStatistiqueMoniteurEtVehicule extends javax.swing.JFrame {
         });
 
         lblUnVehiculeSollicité.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        lblUnVehiculeSollicité.setText("Le véhicule le plus sollicités");
+        lblUnVehiculeSollicité.setText("Le véhicule le plus sollicité");
 
         lblLesMoniteursSollicites.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        lblLesMoniteursSollicites.setText("Classement des moniteurs les plus sollcités");
+        lblLesMoniteursSollicites.setText("Classement des moniteurs les plus sollicités");
 
         btnAdminGraphiqueVehicule.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         btnAdminGraphiqueVehicule.setText("Voir le graphique des véhicules");
@@ -122,15 +122,19 @@ public class FrmAdminStatistiqueMoniteurEtVehicule extends javax.swing.JFrame {
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblLesMoniteursSollicites)
                                     .addComponent(btnAdminGraphiqueLesMoniteurs, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(41, 41, 41))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblADminStatMoniteurVehicule, javax.swing.GroupLayout.PREFERRED_SIZE, 1061, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblADminStatMoniteurVehicule, javax.swing.GroupLayout.PREFERRED_SIZE, 1061, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 662, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
