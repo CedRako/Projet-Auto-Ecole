@@ -46,13 +46,13 @@ public class FrmAdminCA extends javax.swing.JFrame {
         });
 
         lblChiffreDAffaire.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblChiffreDAffaire.setText("Le Chiffre d'Affaire");
+        lblChiffreDAffaire.setText("Le Chiffre d'Affaires");
 
         lblPeriode.setText("Choisissez une période :");
 
         lblAu.setText("Au");
 
-        btnAdminChiffreDAffaires.setText("Voir votre chiffre d'affaire");
+        btnAdminChiffreDAffaires.setText("Voir votre chiffre d'affaires");
         btnAdminChiffreDAffaires.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnAdminChiffreDAffairesMouseClicked(evt);
