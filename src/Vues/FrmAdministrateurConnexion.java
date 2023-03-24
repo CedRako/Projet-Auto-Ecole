@@ -33,14 +33,17 @@ public class FrmAdministrateurConnexion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPasswordField1 = new javax.swing.JPasswordField();
         lblAdminMotDePasse = new javax.swing.JLabel();
         txtAdminLogin = new javax.swing.JTextField();
-        txtAdminMdp = new javax.swing.JTextField();
         btnAdministrateurConnexion = new javax.swing.JButton();
         lblAdminTitre = new javax.swing.JLabel();
         lblAdminConnexion = new javax.swing.JLabel();
         lblAdminLogin = new javax.swing.JLabel();
         btnEAdministrateurRetourConnexion = new javax.swing.JButton();
+        txtAdminMdp = new javax.swing.JPasswordField();
+
+        jPasswordField1.setText("jPasswordField1");
 
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -81,9 +84,9 @@ public class FrmAdministrateurConnexion extends javax.swing.JFrame {
                         .addComponent(btnAdministrateurConnexion)
                         .addGap(157, 157, 157))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtAdminLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAdminMdp, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtAdminLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                            .addComponent(txtAdminMdp))
                         .addGap(77, 77, 77))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,11 +203,12 @@ public class FrmAdministrateurConnexion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdministrateurConnexion;
     private javax.swing.JButton btnEAdministrateurRetourConnexion;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JLabel lblAdminConnexion;
     private javax.swing.JLabel lblAdminLogin;
     private javax.swing.JLabel lblAdminMotDePasse;
     private javax.swing.JLabel lblAdminTitre;
     private javax.swing.JTextField txtAdminLogin;
-    private javax.swing.JTextField txtAdminMdp;
+    private javax.swing.JPasswordField txtAdminMdp;
     // End of variables declaration//GEN-END:variables
 }
