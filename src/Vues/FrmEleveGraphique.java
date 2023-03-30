@@ -131,9 +131,9 @@ public class FrmEleveGraphique extends javax.swing.JFrame {
             donnees.setValue(nombreDeLecon,"",mois);
         }
         JFreeChart chart1 = ChartFactory.createBarChart(
-                "Nombre de leçon par mois durant l'année",
+                "Nombre de leçons par mois durant l'année",
                 "Mois",
-                "Nombre de Leçon",
+                "Nombre de Leçons",
                 donnees,
                 PlotOrientation.VERTICAL,false, true, false);
         ChartPanel graph = new ChartPanel(chart1);

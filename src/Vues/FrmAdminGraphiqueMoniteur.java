@@ -83,9 +83,9 @@ public class FrmAdminGraphiqueMoniteur extends javax.swing.JFrame {
             donnees.setValue(nbLecon,"",nom);
         }
         JFreeChart chart1 = ChartFactory.createBarChart(
-                "Classment des moniteurs",
+                "Classement des moniteurs",
                 "Nom",
-                "Nombre de Leçon",
+                "Nombre de Leçons",
                 donnees,
                 PlotOrientation.VERTICAL,false, true, false);
         ChartPanel graph = new ChartPanel(chart1);
