@@ -1,4 +1,4 @@
 # Projet-Auto-Ecole
 
--La BDD est AutoBra.
--Je conseille de faire un clean and build pour enlever les erreurs 
+-La BDD est autoBra.sql .
+-Je conseille de faire un clean and build avant de lancer le code
