@@ -175,7 +175,7 @@ public class CtrlVehicule {
                                        "group by Immatriculation\n" +
                                        "order by nbrLecons DESC;");
         rs = ps.executeQuery();
-        if(rs.next()){
+        while(rs.next()){
             Vehicule unVehicule= new Vehicule(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(5),rs.getInt(6));
             LesVehicules.add(unVehicule);
         }
