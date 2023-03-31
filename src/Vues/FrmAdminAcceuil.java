@@ -94,7 +94,7 @@ public class FrmAdminAcceuil extends javax.swing.JFrame {
         lblAdminPlannings.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblAdminPlannings.setText("Les Leçons :");
 
-        btnAdminPlanningEleve.setText("Visualiser le planning d'un éleve");
+        btnAdminPlanningEleve.setText("Visualiser le planning d'un élève");
         btnAdminPlanningEleve.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnAdminPlanningEleveMouseClicked(evt);

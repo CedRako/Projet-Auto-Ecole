@@ -162,7 +162,7 @@ public class CtrlMoniteur {
         ps.setString(2, mdp);
         rs= ps.executeQuery();
         if(rs.next()){
-            moiMoniteur= new Moniteur(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4),rs.getDate(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9) );
+            moiMoniteur= new Moniteur(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4),rs.getDate(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9));
         }
         ps.close();
         rs.close();
@@ -274,6 +274,26 @@ public class CtrlMoniteur {
             Logger.getLogger(CtrlMoniteur.class.getName()).log(Level.SEVERE, null, ex);
         }
        return lesMoniteurs;
+   }
+    
+   public Moniteur getMoniteurById(int codeMoniteur){
+        Moniteur moiMoniteur=null;
+    try{
+        ps=cnx.prepareStatement("""
+                                SELECT CodeMoniteur,NOM,Prenom,Sexe,DateDeNaissance,Adresse,CodePostal,Ville,Telephone
+                                FROM `moniteur`
+                                WHERE CodeMoniteur = ? ;""");
+        ps.setInt(1, codeMoniteur);
+        rs= ps.executeQuery();
+        if(rs.next()){
+            moiMoniteur= new Moniteur(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4),rs.getDate(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9));
+        }
+        ps.close();
+        rs.close();
+         } catch (SQLException ex) {
+            Logger.getLogger(CtrlEleve.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return moiMoniteur;
    }
     
 }

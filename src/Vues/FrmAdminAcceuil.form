@@ -206,7 +206,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnAdminPlanningEleve">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Visualiser le planning d&apos;un &#xe9;leve"/>
+        <Property name="text" type="java.lang.String" value="Visualiser le planning d&apos;un &#xe9;l&#xe8;ve"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAdminPlanningEleveMouseClicked"/>
